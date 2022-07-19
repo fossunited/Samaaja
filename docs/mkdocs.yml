@@ -1,0 +1,38 @@
+site_name: Open Civic Backend / Documentation
+theme:
+  name: material
+  favicon: "images/favicon.png"
+  language: "en"
+  font:
+    text: 'Inter'
+    weights: 400
+  direction: 'ltr'
+  extra:
+  search:
+    language: 'en'
+  features:
+    - navigation.expand
+
+  palette:
+    primary: "white"
+    accent: "#b78900"
+
+site_dir: _out
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+dev_addr: '127.0.0.1:8005'
+
+copyright: ""
+
+nav:
+  - "Introduction": index.md
+  - "Installation": installation.md
+  - "Doctypes": doctypes.md
+  - "APIs":
+      - "Add location": "location.md"
