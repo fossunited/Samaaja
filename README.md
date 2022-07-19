@@ -2,6 +2,8 @@
 
 Frappe app to build civic backends
 
+Read the docs [here](https://fossunited.github.io/open-civic-backend/)
+
 ### Installation
 
 * [Install Bench & Frappe ](https://github.com/frappe/bench#installation)
