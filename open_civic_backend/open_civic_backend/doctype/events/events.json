@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-07-06 20:23:26.567812",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "event_type",
+  "session_type",
+  "user",
+  "event_status",
+  "category",
+  "location",
+  "description",
+  "file",
+  "timestamp",
+  "url",
+  "authority",
+  "engaged_govt",
+  "impacted_people",
+  "impacted_resources",
+  "source",
+  "times_follow_up",
+  "feedback",
+  "time_invested"
+ ],
+ "fields": [
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Event Types"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "file",
+   "fieldtype": "Attach",
+   "label": "File"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "label": "User"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Locations"
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "event_status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Event Status"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Event Categories"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  },
+  {
+   "default": "0",
+   "fieldname": "engaged_govt",
+   "fieldtype": "Check",
+   "label": "Engaged Government"
+  },
+  {
+   "default": "0",
+   "fieldname": "impacted_people",
+   "fieldtype": "Data",
+   "label": "Impacted People"
+  },
+  {
+   "fieldname": "impacted_resources",
+   "fieldtype": "Long Text",
+   "label": "Impacted Resources"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "times_follow_up",
+   "fieldtype": "Data",
+   "label": "Times followup"
+  },
+  {
+   "fieldname": "authority",
+   "fieldtype": "Data",
+   "label": "Authority"
+  },
+  {
+   "fieldname": "feedback",
+   "fieldtype": "Long Text",
+   "label": "Feedback"
+  },
+  {
+   "fieldname": "session_type",
+   "fieldtype": "Select",
+   "label": "Session Type",
+   "options": "\nOnline\nOffline"
+  },
+  {
+   "fieldname": "time_invested",
+   "fieldtype": "Data",
+   "label": "Time invested"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-14 14:11:12.209961",
+ "modified_by": "Administrator",
+ "module": "Open Civic Backend",
+ "name": "Events",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
