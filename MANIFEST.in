@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include open_civic_backend *.css
+recursive-include open_civic_backend *.csv
+recursive-include open_civic_backend *.html
+recursive-include open_civic_backend *.ico
+recursive-include open_civic_backend *.js
+recursive-include open_civic_backend *.json
+recursive-include open_civic_backend *.md
+recursive-include open_civic_backend *.png
+recursive-include open_civic_backend *.py
+recursive-include open_civic_backend *.svg
+recursive-include open_civic_backend *.txt
+recursive-exclude open_civic_backend *.pyc
