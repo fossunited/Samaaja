@@ -1,0 +1,1007 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Doctypes - Open Civic Backend / Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="#b78900">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#available-doctypes-tables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Open Civic Backend / Documentation" class="md-header__button md-logo" aria-label="Open Civic Backend / Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Civic Backend / Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Doctypes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Open Civic Backend / Documentation" class="md-nav__button md-logo" aria-label="Open Civic Backend / Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Open Civic Backend / Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Doctypes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Doctypes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locations" class="md-nav__link">
+    Locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-status" class="md-nav__link">
+    Event Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-source" class="md-nav__link">
+    Event Source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-types" class="md-nav__link">
+    Event Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-categories" class="md-nav__link">
+    Event Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-sub-categories" class="md-nav__link">
+    Event Sub Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assets" class="md-nav__link">
+    Assets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-type" class="md-nav__link">
+    Asset Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-categories" class="md-nav__link">
+    Asset Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-sub-categories" class="md-nav__link">
+    Asset Sub Categories
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../location/" class="md-nav__link">
+        Add location
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locations" class="md-nav__link">
+    Locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-status" class="md-nav__link">
+    Event Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-source" class="md-nav__link">
+    Event Source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-types" class="md-nav__link">
+    Event Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-categories" class="md-nav__link">
+    Event Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-sub-categories" class="md-nav__link">
+    Event Sub Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assets" class="md-nav__link">
+    Assets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-type" class="md-nav__link">
+    Asset Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-categories" class="md-nav__link">
+    Asset Categories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-sub-categories" class="md-nav__link">
+    Asset Sub Categories
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="available-doctypes-tables">Available Doctypes / Tables<a class="headerlink" href="#available-doctypes-tables" title="Permanent link">&para;</a></h1>
+<h3 id="locations">Locations<a class="headerlink" href="#locations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>latitude</code></td>
+<td><code>Data</code></td>
+<td>Latitude of location</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>Data</code></td>
+<td>Longitude of location</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td><code>Long text</code></td>
+<td>Address of location</td>
+</tr>
+<tr>
+<td><code>landmark</code></td>
+<td><code>Data</code></td>
+<td>Lankmark nearby</td>
+</tr>
+<tr>
+<td><code>pin</code></td>
+<td><code>Data</code></td>
+<td>Pincode</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>Data</code></td>
+<td>City / Town</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>Select</code></td>
+<td>Drop down with all Indian states</td>
+</tr>
+<tr>
+<td><code>district</code></td>
+<td><code>Data</code></td>
+<td>District</td>
+</tr>
+<tr>
+<td><code>ward</code></td>
+<td><code>Data</code></td>
+<td>Ward name</td>
+</tr>
+<tr>
+<td><code>ward_no</code></td>
+<td><code>Data</code></td>
+<td>Ward number</td>
+</tr>
+<tr>
+<td><code>assembly_constituency</code></td>
+<td><code>Data</code></td>
+<td>Assembly constituency</td>
+</tr>
+<tr>
+<td><code>loksabha_constituency</code></td>
+<td><code>Data</code></td>
+<td>Loksabha constituency</td>
+</tr>
+<tr>
+<td><code>village_name</code></td>
+<td><code>Data</code></td>
+<td>Village name</td>
+</tr>
+<tr>
+<td><code>village_number</code></td>
+<td><code>Data</code></td>
+<td>Village number</td>
+</tr>
+<tr>
+<td><code>hobli_name</code></td>
+<td><code>Data</code></td>
+<td>Hobli name</td>
+</tr>
+<tr>
+<td><code>hobli_number</code></td>
+<td><code>Data</code></td>
+<td>Hobli number</td>
+</tr>
+<tr>
+<td><code>taluka</code></td>
+<td><code>Data</code></td>
+<td>Taluka</td>
+</tr>
+<tr>
+<td><code>polzone</code></td>
+<td><code>Data</code></td>
+<td>Polzone</td>
+</tr>
+<tr>
+<td><code>grama_panchayath</code></td>
+<td><code>Data</code></td>
+<td>Gram panchayath</td>
+</tr>
+<tr>
+<td><code>taluk_panchayath</code></td>
+<td><code>Data</code></td>
+<td>Taluk Panchayath</td>
+</tr>
+<tr>
+<td><code>rwa</code></td>
+<td><code>Data</code></td>
+<td>Resident Welfare Association</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Events represent any kind of event that can happen in the civic space.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>Data</code></td>
+<td>Name of event</td>
+</tr>
+<tr>
+<td><code>event_type</code></td>
+<td><code>Link</code></td>
+<td>ID of event stored in <code>Event Types</code> doctype</td>
+</tr>
+<tr>
+<td><code>event_status</code></td>
+<td><code>Link</code></td>
+<td>ID of event status stored in <code>Event Status</code> doctype</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td><code>Link</code></td>
+<td>ID of event category stored in <code>Event Categories</code> doctype</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td><code>Link</code></td>
+<td>ID of location stored in <code>Locations</code> doctype</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>Link</code></td>
+<td>ID of event source stored in <code>Event Source</code> doctype</td>
+</tr>
+<tr>
+<td><code>session_type</code></td>
+<td><code>Select</code></td>
+<td>Session type be either <code>Online</code> or <code>Offline</code></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>Data</code></td>
+<td>Email address of User who created the event</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>Long Text</code></td>
+<td>Description of the event</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><code>Attach</code></td>
+<td>File / Image attachment</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>Data</code></td>
+<td>Any relevant URL to the event</td>
+</tr>
+<tr>
+<td><code>authority</code></td>
+<td><code>Data</code></td>
+<td>Name of authority involved</td>
+</tr>
+<tr>
+<td><code>engaged_govt</code></td>
+<td><code>Check</code></td>
+<td>Government was involved or not</td>
+</tr>
+<tr>
+<td><code>impacted_people</code></td>
+<td><code>Data</code></td>
+<td>Number of people impacted</td>
+</tr>
+<tr>
+<td><code>impacted_resources</code></td>
+<td><code>Data</code></td>
+<td>Resources impacted</td>
+</tr>
+<tr>
+<td><code>times_follow_up</code></td>
+<td><code>Data</code></td>
+<td>Times follow up was required</td>
+</tr>
+<tr>
+<td><code>feedback</code></td>
+<td><code>Long Text</code></td>
+<td>Feedback on the event</td>
+</tr>
+<tr>
+<td><code>time_invested</code></td>
+<td><code>Data</code></td>
+<td>Time invested for the event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-status">Event Status<a class="headerlink" href="#event-status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_status</code></td>
+<td><code>Data</code></td>
+<td>Status of event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-source">Event Source<a class="headerlink" href="#event-source" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_source</code></td>
+<td><code>Data</code></td>
+<td>Source of event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-types">Event Types<a class="headerlink" href="#event-types" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_type</code></td>
+<td><code>Data</code></td>
+<td>Type of event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-categories">Event Categories<a class="headerlink" href="#event-categories" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category_name</code></td>
+<td><code>Data</code></td>
+<td>Category of event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-sub-categories">Event Sub Categories<a class="headerlink" href="#event-sub-categories" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sub_category_name</code></td>
+<td><code>Data</code></td>
+<td>Sub Category of event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="assets">Assets<a class="headerlink" href="#assets" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Assets are any kind of asset in the civic space.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asset_name</code></td>
+<td><code>Long Text</code></td>
+<td>Name of asset</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>Data</code></td>
+<td>Email of user who reported the asset</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td><code>Link</code></td>
+<td>ID of location stored in <code>Locations</code> doctype</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td><code>Link</code></td>
+<td>ID of asset category stored in <code>Asset Categories</code> doctype</td>
+</tr>
+<tr>
+<td><code>sub_category</code></td>
+<td><code>Link</code></td>
+<td>ID of asset category stored in <code>Asset Sub Categories</code> doctype</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>Long Text</code></td>
+<td>Description of the Asset</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><code>Attach</code></td>
+<td>File / Image attachment</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>Data</code></td>
+<td>Any relevant URL to the event</td>
+</tr>
+<tr>
+<td><code>open_time</code></td>
+<td><code>Data</code></td>
+<td>Opening time of the asset</td>
+</tr>
+<tr>
+<td><code>close_time</code></td>
+<td><code>Data</code></td>
+<td>Close time of the asset</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td><code>Rating</code></td>
+<td>Rating of the asset</td>
+</tr>
+<tr>
+<td><code>phone_number</code></td>
+<td><code>Data</code></td>
+<td>Phone number of the asset</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset-type">Asset Type<a class="headerlink" href="#asset-type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asset_type</code></td>
+<td><code>Data</code></td>
+<td>Type of asset</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset-categories">Asset Categories<a class="headerlink" href="#asset-categories" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category_name</code></td>
+<td><code>Data</code></td>
+<td>Category of asset</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset-sub-categories">Asset Sub Categories<a class="headerlink" href="#asset-sub-categories" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sub_category_name</code></td>
+<td><code>Data</code></td>
+<td>Sub Category of asset</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Installation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../location/" class="md-footer__link md-footer__link--next" aria-label="Next: Add location" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Add location
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
