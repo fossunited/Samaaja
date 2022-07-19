@@ -1,6 +1,7 @@
 # Installation
 
 
+* [Install Bench & Frappe ](https://github.com/frappe/bench#installation)
 
 * Get the app from the repository.
 
