@@ -6,7 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "asset_name",
+  "title",
   "user",
   "category",
   "phone_number",
@@ -21,11 +21,7 @@
  ],
  "fields": [
   {
-   "fieldname": "asset_name",
-   "fieldtype": "Long Text",
-   "label": "Name"
-  },
-  {
+   "description": "Email of user who created this asset",
    "fieldname": "user",
    "fieldtype": "Data",
    "label": "User"
@@ -82,11 +78,16 @@
    "fieldname": "phone_number",
    "fieldtype": "Data",
    "label": "Phone numbers"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Long Text",
+   "label": "Title"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 14:09:02.152499",
+ "modified": "2022-07-28 15:56:57.512557",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Assets",

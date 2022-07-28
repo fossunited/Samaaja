@@ -7,9 +7,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "timestamp",
+  "geolocation",
   "latitude",
   "longitude",
+  "description",
   "address",
   "landmark",
   "pin",
@@ -17,8 +18,8 @@
   "locality",
   "state",
   "district",
-  "ward",
-  "ward_no",
+  "ward_name",
+  "ward_number",
   "assembly_constituency",
   "loksabha_constituency",
   "village_name",
@@ -56,11 +57,6 @@
    "fieldname": "district",
    "fieldtype": "Data",
    "label": "District"
-  },
-  {
-   "fieldname": "ward_no",
-   "fieldtype": "Data",
-   "label": "Ward No"
   },
   {
    "fieldname": "assembly_constituency",
@@ -108,11 +104,6 @@
    "label": "Pin"
   },
   {
-   "fieldname": "timestamp",
-   "fieldtype": "Datetime",
-   "label": "Timestamp"
-  },
-  {
    "fieldname": "landmark",
    "fieldtype": "Data",
    "label": "Landmark"
@@ -139,19 +130,35 @@
    "label": "Village Number"
   },
   {
-   "fieldname": "ward",
+   "fieldname": "loksabha_constituency",
+   "fieldtype": "Data",
+   "label": "Loksabha Constituency"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "description": "Select a <b>Point</b> on the map to autofill the latitude &amp; longitude",
+   "fieldname": "geolocation",
+   "fieldtype": "Geolocation",
+   "label": "Geolocation"
+  },
+  {
+   "fieldname": "ward_name",
    "fieldtype": "Data",
    "label": "Ward name"
   },
   {
-   "fieldname": "loksabha_constituency",
+   "fieldname": "ward_number",
    "fieldtype": "Data",
-   "label": "Loksabha Constituency"
+   "label": "Ward No"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 13:51:01.948824",
+ "modified": "2022-07-28 23:15:42.699143",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Locations",

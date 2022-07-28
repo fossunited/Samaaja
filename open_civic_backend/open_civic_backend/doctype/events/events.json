@@ -7,43 +7,38 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "event_type",
-  "session_type",
-  "user",
-  "event_status",
+  "type",
+  "status",
   "category",
+  "subcategory",
+  "user",
+  "session_type",
   "location",
   "description",
-  "file",
   "timestamp",
   "url",
   "authority",
-  "engaged_govt",
-  "impacted_people",
-  "impacted_resources",
+  "has_govt_engagement",
+  "section_break_0",
+  "impacted_entity_count",
+  "section_break_1",
+  "impacted_resource_count",
+  "impacted_resource_unit",
+  "section_break_2",
   "source",
-  "times_follow_up",
+  "followup_count",
   "feedback",
+  "rating",
   "time_invested"
  ],
  "fields": [
-  {
-   "fieldname": "event_type",
-   "fieldtype": "Link",
-   "label": "Type",
-   "options": "Event Types"
-  },
   {
    "fieldname": "description",
    "fieldtype": "Long Text",
    "label": "Description"
   },
   {
-   "fieldname": "file",
-   "fieldtype": "Attach",
-   "label": "File"
-  },
-  {
+   "description": "Email address of user who created this event",
    "fieldname": "user",
    "fieldtype": "Data",
    "label": "User"
@@ -60,12 +55,6 @@
    "label": "Timestamp"
   },
   {
-   "fieldname": "event_status",
-   "fieldtype": "Link",
-   "label": "Status",
-   "options": "Event Status"
-  },
-  {
    "fieldname": "category",
    "fieldtype": "Link",
    "label": "Category",
@@ -77,23 +66,6 @@
    "label": "URL"
   },
   {
-   "default": "0",
-   "fieldname": "engaged_govt",
-   "fieldtype": "Check",
-   "label": "Engaged Government"
-  },
-  {
-   "default": "0",
-   "fieldname": "impacted_people",
-   "fieldtype": "Data",
-   "label": "Impacted People"
-  },
-  {
-   "fieldname": "impacted_resources",
-   "fieldtype": "Long Text",
-   "label": "Impacted Resources"
-  },
-  {
    "fieldname": "title",
    "fieldtype": "Data",
    "label": "Title"
@@ -102,11 +74,6 @@
    "fieldname": "source",
    "fieldtype": "Data",
    "label": "Source"
-  },
-  {
-   "fieldname": "times_follow_up",
-   "fieldtype": "Data",
-   "label": "Times followup"
   },
   {
    "fieldname": "authority",
@@ -128,11 +95,75 @@
    "fieldname": "time_invested",
    "fieldtype": "Data",
    "label": "Time invested"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_govt_engagement",
+   "fieldtype": "Check",
+   "label": "Has engaged government"
+  },
+  {
+   "fieldname": "followup_count",
+   "fieldtype": "Data",
+   "label": "Followup count"
+  },
+  {
+   "default": "0",
+   "fieldname": "impacted_entity_count",
+   "fieldtype": "Data",
+   "label": "Impacted entity count"
+  },
+  {
+   "fieldname": "impacted_resource_count",
+   "fieldtype": "Data",
+   "label": "Impacted resource count"
+  },
+  {
+   "fieldname": "impacted_resource_unit",
+   "fieldtype": "Data",
+   "label": "Impacted resource unit"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Impacted resources"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Event Types"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Event Status"
+  },
+  {
+   "fieldname": "section_break_0",
+   "fieldtype": "Section Break",
+   "label": "Impacted entities"
+  },
+  {
+   "fieldname": "subcategory",
+   "fieldtype": "Link",
+   "label": "Sub category",
+   "options": "Event Sub Categories"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 14:11:12.209961",
+ "modified": "2022-07-28 15:55:08.148202",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Events",
