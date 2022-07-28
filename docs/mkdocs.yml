@@ -36,3 +36,4 @@ nav:
   - "Doctypes": doctypes.md
   - "APIs":
       - "Add location": "location.md"
+      - "Frappe REST API": "frappe_rest_api.md"
