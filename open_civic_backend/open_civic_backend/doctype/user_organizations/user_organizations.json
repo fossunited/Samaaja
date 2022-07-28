@@ -7,27 +7,34 @@
  "engine": "InnoDB",
  "field_order": [
   "org_name",
-  "location"
+  "location",
+  "user"
  ],
  "fields": [
   {
    "fieldname": "org_name",
    "fieldtype": "Data",
-   "label": "Org Name"
+   "label": "Name"
   },
   {
    "fieldname": "location",
    "fieldtype": "Link",
    "label": "Location",
    "options": "Locations"
+  },
+  {
+   "description": "Email of user belonging to the organization",
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "label": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-13 23:17:38.226597",
+ "modified": "2022-07-28 11:42:28.511789",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
- "name": "Organization",
+ "name": "User Organizations",
  "owner": "Administrator",
  "permissions": [
   {
