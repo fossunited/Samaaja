@@ -290,11 +290,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#post-apimethodcivic_backendcivic_backendapilocationnew" class="md-nav__link">
-    POST /api/method/civic_backend.civic_backend.api.location.new
+  <a href="#post-apimethodopen_civic_backendapilocationnew" class="md-nav__link">
+    POST /api/method/open_civic_backend.api.location.new
   </a>
   
-    <nav class="md-nav" aria-label="POST /api/method/civic_backend.civic_backend.api.location.new">
+    <nav class="md-nav" aria-label="POST /api/method/open_civic_backend.api.location.new">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -320,6 +320,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frappe_rest_api/" class="md-nav__link">
+        Frappe REST API
+      </a>
     </li>
   
 
@@ -358,11 +372,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#post-apimethodcivic_backendcivic_backendapilocationnew" class="md-nav__link">
-    POST /api/method/civic_backend.civic_backend.api.location.new
+  <a href="#post-apimethodopen_civic_backendapilocationnew" class="md-nav__link">
+    POST /api/method/open_civic_backend.api.location.new
   </a>
   
-    <nav class="md-nav" aria-label="POST /api/method/civic_backend.civic_backend.api.location.new">
+    <nav class="md-nav" aria-label="POST /api/method/open_civic_backend.api.location.new">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -399,46 +413,59 @@
 
 
 <h1 id="add-location">Add location<a class="headerlink" href="#add-location" title="Permanent link">&para;</a></h1>
-<h3 id="post-apimethodcivic_backendcivic_backendapilocationnew">POST /api/method/civic_backend.civic_backend.api.location.new<a class="headerlink" href="#post-apimethodcivic_backendcivic_backendapilocationnew" title="Permanent link">&para;</a></h3>
+<h3 id="post-apimethodopen_civic_backendapilocationnew">POST <a href="http://localfrappe.test:8000/api/method/open_civic_backend.api.location.new">/api/method/open_civic_backend.api.location.new</a><a class="headerlink" href="#post-apimethodopen_civic_backendapilocationnew" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Add a new location with latitude and longitude (required).</li>
-<li>Other fields are automatically filled in by an external GIS service.</li>
 <li>If latitude and longitude already exists, it will return the existing location data.</li>
 </ul>
 <h4 id="request">Request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
- -d <span class="s1">&#39;{&quot;latitude&quot;:&quot;12.233&quot;,&quot;longitude&quot;:&quot;17.02323&quot;}&#39;</span> <span class="se">\</span>
+ -d <span class="s1">&#39;{&quot;latitude&quot;:&quot;12.233&quot;,&quot;longitude&quot;:&quot;17.02323&quot;,</span>
+<span class="s1"> &quot;address&quot;: &quot;JP Nagar 5th phase, Bengaluru&quot;,</span>
+<span class="s1"> &quot;city&quot;: &quot;Bengaluru&quot;, &quot;state&quot;: &quot;Karnataka&quot;}&#39;</span> <span class="se">\</span>
  <span class="s1">&#39;http://localhost:8000/api/method/civic_backend.civic_backend.api.location.new&#39;</span>
 </code></pre></div>
 <h4 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d6c1fd1bea&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-07-17 15:22:49.523191&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12.9728341&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;77.6619917&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;landmark&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;pin_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Karnataka&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;district&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bengaluru (Urban)&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;ward&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New Tippasandra&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;ward_no&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;assembly_constituency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C.V. RamannNagar&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;loksabha_constituency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bangalore Central&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;village_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K.G.Byrasandra&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;village_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2004090010&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;hobli_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Marathahalli&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;hobli_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200409&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;taluka&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;polzone&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;grama_panchayath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;taluk_panchayath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bangalore-East&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;rwa&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c8491aeee0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Guest&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;creation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-07-28 23:10:06.489092&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;modified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-07-28 23:10:06.489092&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;modified_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Guest&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;parentfield&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;parenttype&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;idx&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;docstatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;geolocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;type\&quot;: \&quot;FeatureCollection\&quot;, \&quot;features\&quot;: [{\&quot;type\&quot;: \&quot;Feature\&quot;, \&quot;properties\&quot;: {}, \&quot;geometry\&quot;: {\&quot;type\&quot;: \&quot;Point\&quot;, \&quot;coordinates\&quot;: [60, 23.232]}}]}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">23.232</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JP Nagar 5th phase, Bengaluru&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;landmark&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;pin&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bengaluru&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;locality&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Karnataka&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;district&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;ward_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;ward_no&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;assembly_constituency&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;loksabha_constituency&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;village_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;village_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;hobli_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;hobli_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;taluka&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;polzone&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;grama_panchayath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;taluk_panchayath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;rwa&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;doctype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Locations&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;is_new&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// This is a new location</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
@@ -470,6 +497,21 @@
           </div>
         </a>
       
+      
+        
+        <a href="../frappe_rest_api/" class="md-footer__link md-footer__link--next" aria-label="Next: Frappe REST API" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Frappe REST API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
