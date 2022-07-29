@@ -5,16 +5,18 @@
 
 | Frappe field     | Field type|                                                                                                                                     |
 |-----------|---------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `geolocation`    | `Geolocation`     | Map to select a point on map |
 | `latitude`    | `Data`     | Latitude of location |
 | `longitude` | `Data`     | Longitude of location                                                                      |
+| `description` | `Long text`     | Description of the location |
 | `address` | `Long text`     | Address of location|
 | `landmark`  | `Data`      | Lankmark nearby                                                                                  |
 | `pin`  | `Data` | Pincode |
 | `city`   | `Data`   |  City / Town |
 | `state`    | `Select`   | Drop down with all Indian states |
 | `district`  | `Data`   | District            |
-| `ward`   | `Data`     | Ward name                                                                                                                 |
-| `ward_no`  | `Data`     | Ward number|
+| `ward_name`   | `Data`     | Ward name                                                                                                                 |
+| `ward_number`  | `Data`     | Ward number|
 | `assembly_constituency`  | `Data`     | Assembly constituency |
 | `loksabha_constituency`  | `Data`     | Loksabha constituency |
 | `village_name`  | `Data`     | Village name|
@@ -33,32 +35,33 @@
 
   
 | Frappe field     | Field type |                                                                                                                                     |
-|--------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `title`    | `Data`     | Name of event |
-| `event_type` | `Link`     | ID of event stored in `Event Types` doctype |
-| `event_status`  | `Link` | ID of event status stored in `Event Status` doctype |
+| `type` | `Link`     | ID of event stored in `Event Types` doctype |
+| `status`  | `Link` | ID of event status stored in `Event Status` doctype |
 | `category`   | `Link`   | ID of event category stored in `Event Categories` doctype |
-| `location`    | `Link`   | ID of location stored in `Locations` doctype |
+| `subcategory`   | `Link`   | ID of event category stored in `Event Sub Categories` doctype |
 | `source`  | `Link`     | ID of event source stored in `Event Source` doctype |
-| `session_type` | `Select`     | Session type be either `Online` or `Offline` |
-| `user`  | `Data`      | Email address of User who created the event |
+| `user`  | `Data`      | Email address of User reporting the event |
+| `location`    | `Link`   | ID of location stored in `Locations` doctype |
 | `description`  | `Long Text`   | Description of the event            |
-| `file`   | `Attach`     | File / Image attachment                                                                                                                 |
 | `url`  | `Data`     | Any relevant URL to the event |
 | `authority`  | `Data`     | Name of authority involved |
-| `engaged_govt`  | `Check`     | Government was involved or not |
-| `impacted_people`  | `Data`     | Number of people impacted |
-| `impacted_resources`  | `Data`     | Resources impacted |
-| `times_follow_up`  | `Data`     | Times follow up was required |
+| `has_govt_engagement`  | `Check`     | Government was engaged or not |
+| `impacted_entity_count` | `Data`     | Number of entities impacted |
+| `impacted_entity_unit`  | `Data`     | ID stored in `Impacted Entity Units` doctype |
+| `followup_count`  | `Data`     | Times follow up was required |
 | `feedback`  | `Long Text`     | Feedback on the event |
-| `time_invested`  | `Data`     | Time invested for the event |
+| `rating`  | `Rating`     | Rating for the event |
+| `time_invested`  | `Data`     | Time invested in the event |
+
 
 
 ### Event Status
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `event_status`    | `Data`     | Status of event |
+| `status`    | `Data`     | Status of an event |
 
 
 ### Event Source
@@ -66,28 +69,28 @@
   
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `event_source`    | `Data`     | Source of event |
+| `source`    | `Data`     | Source of an event |
 
 
 ### Event Types
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `event_type`    | `Data`     | Type of event |
+| `type`    | `Data`     | Type of an event |
 
 
 ### Event Categories
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `category_name`    | `Data`     | Category of event |
+| `category`    | `Data`     | Category of an event |
 
 
 ### Event Sub Categories
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `sub_category_name`    | `Data`     | Sub Category of event |
+| `subcategory`    | `Data`     | Sub Category of an event |
 
 
 ### Assets
@@ -95,36 +98,37 @@
 
 | Frappe field     | Field type|                                                                                                                                     |
 |--------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `asset_name`    | `Long Text`     | Name of asset |
-| `user` | `Data`     | Email of user who reported the asset |
-| `location` | `Link`     | ID of location stored in `Locations` doctype |
+| `title`    | `Long Text`     | Name of asset |
+| `status` | `Link` | ID of asset status stored in `Asset Status` doctype |
 | `category`  | `Link`     | ID of asset category stored in `Asset Categories` doctype |
-| `sub_category`  | `Link`     | ID of asset category stored in `Asset Sub Categories` doctype |
+| `subcategory`  | `Link`     | ID of asset category stored in `Asset Sub Categories` doctype |
 | `description`  | `Long Text`   | Description of the Asset            |
-| `file`   | `Attach`     | File / Image attachment                                                                                                                 |
+| `user` | `Data`     | Email of user who reported the asset |
+| `phone_number`  | `Data`     | Phone number of the asset |
+| `location` | `Link`     | ID of location stored in `Locations` doctype |
 | `url`  | `Data`     | Any relevant URL to the event |
 | `open_time`  | `Data`     | Opening time of the asset |
 | `close_time`  | `Data`     | Close time of the asset |
 | `rating`  | `Rating`     | Rating of the asset |
-| `phone_number`  | `Data`     | Phone number of the asset |
+
 
 
 ### Asset Type
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `asset_type`    | `Data`     | Type of asset |
+| `type`    | `Data`     | Type of an asset |
 
 
 ### Asset Categories
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `category_name`    | `Data`     | Category of asset |
+| `category`    | `Data`     | Category of  an asset |
 
 
 ### Asset Sub Categories
 
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
-| `sub_category_name`    | `Data`     | Sub Category of asset |
+| `subcategory`    | `Data`     | Sub Category of an asset |
