@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestImpactedResourcesUnits(unittest.TestCase):
+class TestAssetStatus(unittest.TestCase):
 	pass

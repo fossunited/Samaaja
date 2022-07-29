@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:event_type",
+ "autoname": "field:type",
  "creation": "2022-07-06 20:21:20.147904",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "event_type"
+  "type"
  ],
  "fields": [
   {
-   "fieldname": "event_type",
+   "fieldname": "type",
    "fieldtype": "Data",
-   "label": "Event type",
+   "label": "Type",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 12:17:32.197616",
+ "modified": "2022-07-29 10:33:48.941256",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Types",

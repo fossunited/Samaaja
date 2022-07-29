@@ -1,28 +1,28 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:unit",
- "creation": "2022-07-27 16:48:52.409914",
+ "autoname": "field:status",
+ "creation": "2022-07-29 10:38:51.050145",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "unit"
+  "status"
  ],
  "fields": [
   {
-   "fieldname": "unit",
+   "fieldname": "status",
    "fieldtype": "Data",
-   "label": "Unit",
+   "label": "Status",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-27 16:48:57.195399",
+ "modified": "2022-07-29 10:38:51.050145",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
- "name": "Impacted Resources Units",
+ "name": "Asset Status",
  "owner": "Administrator",
  "permissions": [
   {

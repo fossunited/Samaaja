@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:asset_type",
+ "autoname": "field:type",
  "creation": "2022-07-18 22:48:53.213234",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "asset_type"
+  "type"
  ],
  "fields": [
   {
-   "fieldname": "asset_type",
+   "fieldname": "type",
    "fieldtype": "Data",
-   "label": "Asset type",
+   "label": "Type",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-18 22:48:53.213234",
+ "modified": "2022-07-29 10:36:48.252745",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Asset Type",

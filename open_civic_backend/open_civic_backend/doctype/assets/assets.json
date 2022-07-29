@@ -7,13 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "user",
+  "status",
   "category",
-  "phone_number",
-  "sub_category",
-  "location",
+  "subcategory",
   "description",
-  "file",
+  "user",
+  "phone_number",
+  "location",
   "url",
   "open_time",
   "close_time",
@@ -21,7 +21,7 @@
  ],
  "fields": [
   {
-   "description": "Email of user who created this asset",
+   "description": "User email reporting the asset",
    "fieldname": "user",
    "fieldtype": "Data",
    "label": "User"
@@ -36,11 +36,6 @@
    "fieldname": "description",
    "fieldtype": "Long Text",
    "label": "Description"
-  },
-  {
-   "fieldname": "file",
-   "fieldtype": "Attach",
-   "label": "Media"
   },
   {
    "fieldname": "url",
@@ -69,12 +64,6 @@
    "options": "Asset Categories"
   },
   {
-   "fieldname": "sub_category",
-   "fieldtype": "Link",
-   "label": "Sub-Category",
-   "options": "Asset Sub Categories"
-  },
-  {
    "fieldname": "phone_number",
    "fieldtype": "Data",
    "label": "Phone numbers"
@@ -83,11 +72,23 @@
    "fieldname": "title",
    "fieldtype": "Long Text",
    "label": "Title"
+  },
+  {
+   "fieldname": "subcategory",
+   "fieldtype": "Link",
+   "label": "Sub Category",
+   "options": "Asset Sub Categories"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Asset Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-28 15:56:57.512557",
+ "modified": "2022-07-29 10:39:23.036459",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Assets",

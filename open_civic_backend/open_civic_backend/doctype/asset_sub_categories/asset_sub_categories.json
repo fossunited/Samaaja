@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:sub_category",
+ "autoname": "field:subcategory",
  "creation": "2022-07-14 12:30:11.596055",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "sub_category"
+  "subcategory"
  ],
  "fields": [
   {
-   "fieldname": "sub_category",
+   "fieldname": "subcategory",
    "fieldtype": "Data",
-   "label": "Sub-Category",
+   "label": "Sub Category",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 12:30:11.596055",
+ "modified": "2022-07-29 10:37:31.581158",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Asset Sub Categories",

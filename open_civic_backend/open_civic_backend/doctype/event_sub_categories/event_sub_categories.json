@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:sub_category_name",
+ "autoname": "field:subcategory",
  "creation": "2022-07-18 22:48:06.717700",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "sub_category_name"
+  "subcategory"
  ],
  "fields": [
   {
-   "fieldname": "sub_category_name",
+   "fieldname": "subcategory",
    "fieldtype": "Data",
-   "label": "Sub Category name",
+   "label": "Sub Category",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-18 22:48:06.717700",
+ "modified": "2022-07-29 10:40:29.626534",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Sub Categories",

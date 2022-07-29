@@ -15,7 +15,6 @@
   "landmark",
   "pin",
   "city",
-  "locality",
   "state",
   "district",
   "ward_name",
@@ -66,7 +65,7 @@
   {
    "fieldname": "village_name",
    "fieldtype": "Data",
-   "label": "Village Name"
+   "label": "Village name"
   },
   {
    "fieldname": "taluka",
@@ -77,11 +76,6 @@
    "fieldname": "polzone",
    "fieldtype": "Data",
    "label": "Polzone"
-  },
-  {
-   "fieldname": "locality",
-   "fieldtype": "Data",
-   "label": "Locality"
   },
   {
    "fieldname": "grama_panchayath",
@@ -117,7 +111,7 @@
   {
    "fieldname": "hobli_name",
    "fieldtype": "Data",
-   "label": "Hobli"
+   "label": "Hobli name"
   },
   {
    "fieldname": "hobli_number",
@@ -158,7 +152,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-28 23:15:42.699143",
+ "modified": "2022-07-29 10:30:48.478005",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Locations",

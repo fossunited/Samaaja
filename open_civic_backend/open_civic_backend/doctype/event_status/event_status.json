@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:event_status",
+ "autoname": "field:status",
  "creation": "2022-07-14 12:24:25.337608",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "event_status"
+  "status"
  ],
  "fields": [
   {
-   "fieldname": "event_status",
+   "fieldname": "status",
    "fieldtype": "Data",
-   "label": "Event status",
+   "label": "Status",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-14 12:24:25.337608",
+ "modified": "2022-07-29 10:34:46.245185",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Status",

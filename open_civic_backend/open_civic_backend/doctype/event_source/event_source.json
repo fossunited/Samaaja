@@ -1,25 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:event_source",
+ "autoname": "field:source",
  "creation": "2022-07-17 15:47:38.322362",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "event_source"
+  "source"
  ],
  "fields": [
   {
-   "fieldname": "event_source",
+   "fieldname": "source",
    "fieldtype": "Data",
-   "label": "Event Source",
+   "label": "Source",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-17 15:47:38.322362",
+ "modified": "2022-07-29 10:35:08.834934",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Source",
