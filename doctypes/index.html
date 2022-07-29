@@ -522,6 +522,11 @@
 </thead>
 <tbody>
 <tr>
+<td><code>geolocation</code></td>
+<td><code>Geolocation</code></td>
+<td>Map to select a point on map</td>
+</tr>
+<tr>
 <td><code>latitude</code></td>
 <td><code>Data</code></td>
 <td>Latitude of location</td>
@@ -530,6 +535,11 @@
 <td><code>longitude</code></td>
 <td><code>Data</code></td>
 <td>Longitude of location</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>Long text</code></td>
+<td>Description of the location</td>
 </tr>
 <tr>
 <td><code>address</code></td>
@@ -562,12 +572,12 @@
 <td>District</td>
 </tr>
 <tr>
-<td><code>ward</code></td>
+<td><code>ward_name</code></td>
 <td><code>Data</code></td>
 <td>Ward name</td>
 </tr>
 <tr>
-<td><code>ward_no</code></td>
+<td><code>ward_number</code></td>
 <td><code>Data</code></td>
 <td>Ward number</td>
 </tr>
@@ -647,12 +657,12 @@
 <td>Name of event</td>
 </tr>
 <tr>
-<td><code>event_type</code></td>
+<td><code>type</code></td>
 <td><code>Link</code></td>
 <td>ID of event stored in <code>Event Types</code> doctype</td>
 </tr>
 <tr>
-<td><code>event_status</code></td>
+<td><code>status</code></td>
 <td><code>Link</code></td>
 <td>ID of event status stored in <code>Event Status</code> doctype</td>
 </tr>
@@ -662,9 +672,9 @@
 <td>ID of event category stored in <code>Event Categories</code> doctype</td>
 </tr>
 <tr>
-<td><code>location</code></td>
+<td><code>subcategory</code></td>
 <td><code>Link</code></td>
-<td>ID of location stored in <code>Locations</code> doctype</td>
+<td>ID of event category stored in <code>Event Sub Categories</code> doctype</td>
 </tr>
 <tr>
 <td><code>source</code></td>
@@ -672,24 +682,19 @@
 <td>ID of event source stored in <code>Event Source</code> doctype</td>
 </tr>
 <tr>
-<td><code>session_type</code></td>
-<td><code>Select</code></td>
-<td>Session type be either <code>Online</code> or <code>Offline</code></td>
-</tr>
-<tr>
 <td><code>user</code></td>
 <td><code>Data</code></td>
-<td>Email address of User who created the event</td>
+<td>Email address of User reporting the event</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td><code>Link</code></td>
+<td>ID of location stored in <code>Locations</code> doctype</td>
 </tr>
 <tr>
 <td><code>description</code></td>
 <td><code>Long Text</code></td>
 <td>Description of the event</td>
-</tr>
-<tr>
-<td><code>file</code></td>
-<td><code>Attach</code></td>
-<td>File / Image attachment</td>
 </tr>
 <tr>
 <td><code>url</code></td>
@@ -702,22 +707,22 @@
 <td>Name of authority involved</td>
 </tr>
 <tr>
-<td><code>engaged_govt</code></td>
+<td><code>has_govt_engagement</code></td>
 <td><code>Check</code></td>
-<td>Government was involved or not</td>
+<td>Government was engaged or not</td>
 </tr>
 <tr>
-<td><code>impacted_people</code></td>
+<td><code>impacted_entity_count</code></td>
 <td><code>Data</code></td>
-<td>Number of people impacted</td>
+<td>Number of entities impacted</td>
 </tr>
 <tr>
-<td><code>impacted_resources</code></td>
+<td><code>impacted_entity_unit</code></td>
 <td><code>Data</code></td>
-<td>Resources impacted</td>
+<td>ID stored in <code>Impacted Entity Units</code> doctype</td>
 </tr>
 <tr>
-<td><code>times_follow_up</code></td>
+<td><code>followup_count</code></td>
 <td><code>Data</code></td>
 <td>Times follow up was required</td>
 </tr>
@@ -727,9 +732,14 @@
 <td>Feedback on the event</td>
 </tr>
 <tr>
+<td><code>rating</code></td>
+<td><code>Rating</code></td>
+<td>Rating for the event</td>
+</tr>
+<tr>
 <td><code>time_invested</code></td>
 <td><code>Data</code></td>
-<td>Time invested for the event</td>
+<td>Time invested in the event</td>
 </tr>
 </tbody>
 </table>
@@ -744,9 +754,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>event_status</code></td>
+<td><code>status</code></td>
 <td><code>Data</code></td>
-<td>Status of event</td>
+<td>Status of an event</td>
 </tr>
 </tbody>
 </table>
@@ -761,9 +771,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>event_source</code></td>
+<td><code>source</code></td>
 <td><code>Data</code></td>
-<td>Source of event</td>
+<td>Source of an event</td>
 </tr>
 </tbody>
 </table>
@@ -778,9 +788,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>event_type</code></td>
+<td><code>type</code></td>
 <td><code>Data</code></td>
-<td>Type of event</td>
+<td>Type of an event</td>
 </tr>
 </tbody>
 </table>
@@ -795,9 +805,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>category_name</code></td>
+<td><code>category</code></td>
 <td><code>Data</code></td>
-<td>Category of event</td>
+<td>Category of an event</td>
 </tr>
 </tbody>
 </table>
@@ -812,9 +822,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>sub_category_name</code></td>
+<td><code>subcategory</code></td>
 <td><code>Data</code></td>
-<td>Sub Category of event</td>
+<td>Sub Category of an event</td>
 </tr>
 </tbody>
 </table>
@@ -832,19 +842,14 @@
 </thead>
 <tbody>
 <tr>
-<td><code>asset_name</code></td>
+<td><code>title</code></td>
 <td><code>Long Text</code></td>
 <td>Name of asset</td>
 </tr>
 <tr>
-<td><code>user</code></td>
-<td><code>Data</code></td>
-<td>Email of user who reported the asset</td>
-</tr>
-<tr>
-<td><code>location</code></td>
+<td><code>status</code></td>
 <td><code>Link</code></td>
-<td>ID of location stored in <code>Locations</code> doctype</td>
+<td>ID of asset status stored in <code>Asset Status</code> doctype</td>
 </tr>
 <tr>
 <td><code>category</code></td>
@@ -852,7 +857,7 @@
 <td>ID of asset category stored in <code>Asset Categories</code> doctype</td>
 </tr>
 <tr>
-<td><code>sub_category</code></td>
+<td><code>subcategory</code></td>
 <td><code>Link</code></td>
 <td>ID of asset category stored in <code>Asset Sub Categories</code> doctype</td>
 </tr>
@@ -862,9 +867,19 @@
 <td>Description of the Asset</td>
 </tr>
 <tr>
-<td><code>file</code></td>
-<td><code>Attach</code></td>
-<td>File / Image attachment</td>
+<td><code>user</code></td>
+<td><code>Data</code></td>
+<td>Email of user who reported the asset</td>
+</tr>
+<tr>
+<td><code>phone_number</code></td>
+<td><code>Data</code></td>
+<td>Phone number of the asset</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td><code>Link</code></td>
+<td>ID of location stored in <code>Locations</code> doctype</td>
 </tr>
 <tr>
 <td><code>url</code></td>
@@ -886,11 +901,6 @@
 <td><code>Rating</code></td>
 <td>Rating of the asset</td>
 </tr>
-<tr>
-<td><code>phone_number</code></td>
-<td><code>Data</code></td>
-<td>Phone number of the asset</td>
-</tr>
 </tbody>
 </table>
 <h3 id="asset-type">Asset Type<a class="headerlink" href="#asset-type" title="Permanent link">&para;</a></h3>
@@ -904,9 +914,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>asset_type</code></td>
+<td><code>type</code></td>
 <td><code>Data</code></td>
-<td>Type of asset</td>
+<td>Type of an asset</td>
 </tr>
 </tbody>
 </table>
@@ -921,9 +931,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>category_name</code></td>
+<td><code>category</code></td>
 <td><code>Data</code></td>
-<td>Category of asset</td>
+<td>Category of  an asset</td>
 </tr>
 </tbody>
 </table>
@@ -938,9 +948,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>sub_category_name</code></td>
+<td><code>subcategory</code></td>
 <td><code>Data</code></td>
-<td>Sub Category of asset</td>
+<td>Sub Category of an asset</td>
 </tr>
 </tbody>
 </table>
