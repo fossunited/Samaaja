@@ -99,6 +99,7 @@
 | Frappe field     | Field type|                                                                                                                                     |
 |--------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `title`    | `Long Text`     | Name of asset |
+| `type` | `Link` | ID of asset status stored in `Asset Status` doctype |
 | `status` | `Link` | ID of asset status stored in `Asset Status` doctype |
 | `category`  | `Link`     | ID of asset category stored in `Asset Categories` doctype |
 | `subcategory`  | `Link`     | ID of asset category stored in `Asset Sub Categories` doctype |
@@ -111,6 +112,12 @@
 | `close_time`  | `Data`     | Close time of the asset |
 | `rating`  | `Rating`     | Rating of the asset |
 
+
+### Asset Status
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `status`    | `Data`     | Status of an asset |
 
 
 ### Asset Type

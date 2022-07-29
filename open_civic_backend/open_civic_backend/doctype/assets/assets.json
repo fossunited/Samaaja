@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "type",
   "status",
   "category",
   "subcategory",
@@ -84,11 +85,17 @@
    "fieldtype": "Link",
    "label": "Status",
    "options": "Asset Status"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Asset Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 10:39:23.036459",
+ "modified": "2022-07-29 12:13:16.012835",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Assets",
