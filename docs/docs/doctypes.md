@@ -93,6 +93,13 @@
 | `subcategory`    | `Data`     | Sub Category of an event |
 
 
+### Impacted Entity Units
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `unit`    | `Data`     | Units for impacted entity in an event |
+
+
 ### Assets
 * Assets are any kind of asset in the civic space.
 
@@ -139,3 +146,11 @@
 | Frappe field     | Field type|                                                                                                                                     |
 |---------------|--------------------------|------------------------|
 | `subcategory`    | `Data`     | Sub Category of an asset |
+
+### User Organizations
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `org_name`    | `Data`     | Name of the organization |
+| `location`    | `Link`     | ID of location stored in `Locations` doctype |
+| `user`    | `Data`     | Email address of user belonging to this organization |
