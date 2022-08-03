@@ -2,7 +2,7 @@ import frappe
 from frappe.handler import upload_file
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def handler(doctype=None, filters=None, debug=False, cache=False):
     files = frappe.request.files
     filename_hash = None
