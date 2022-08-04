@@ -133,10 +133,6 @@ app_license = "MIT"
 # ------------------------------
 #
 
-override_whitelisted_methods = {
-    "upload_file": "open_civic_backend.api.upload_handler.handler",
-}
-
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "open_civic_backend.event.get_events"
 # }
