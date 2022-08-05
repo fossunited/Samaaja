@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:subcategory",
  "creation": "2022-07-14 12:30:11.596055",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 10:37:31.581158",
+ "modified": "2022-08-05 15:01:31.974007",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Asset Sub Categories",

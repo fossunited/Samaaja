@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:category",
  "creation": "2022-07-14 14:09:30.690828",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 10:36:32.112659",
+ "modified": "2022-08-05 15:01:38.823234",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Categories",

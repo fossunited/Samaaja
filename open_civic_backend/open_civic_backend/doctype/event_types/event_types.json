@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:type",
  "creation": "2022-07-06 20:21:20.147904",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 10:33:48.941256",
+ "modified": "2022-08-05 15:01:49.443997",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Event Types",

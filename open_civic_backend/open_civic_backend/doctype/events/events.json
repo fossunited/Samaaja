@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2022-07-06 20:23:26.567812",
  "doctype": "DocType",
@@ -140,7 +141,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 11:55:11.640279",
+ "modified": "2022-08-05 15:00:04.528480",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Events",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:unit",
  "creation": "2022-07-27 16:48:52.409914",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-27 16:48:57.195399",
+ "modified": "2022-08-05 15:02:01.695032",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Impacted Entity Units",
