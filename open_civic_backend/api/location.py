@@ -2,6 +2,7 @@ import frappe
 import json
 from open_civic_backend.api.common import custom_response
 
+
 @frappe.whitelist()
 def new():
     """

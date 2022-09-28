@@ -44,13 +44,13 @@
    "fieldname": "location",
    "fieldtype": "Link",
    "label": "Location",
-   "options": "Locations"
+   "options": "Location"
   },
   {
    "fieldname": "category",
    "fieldtype": "Link",
    "label": "Category",
-   "options": "Event Categories"
+   "options": "Event Category"
   },
   {
    "fieldname": "url",
@@ -113,7 +113,7 @@
    "fieldname": "type",
    "fieldtype": "Link",
    "label": "Type",
-   "options": "Event Types"
+   "options": "Event Type"
   },
   {
    "fieldname": "status",
@@ -130,18 +130,18 @@
    "fieldname": "subcategory",
    "fieldtype": "Link",
    "label": "Sub category",
-   "options": "Event Sub Categories"
+   "options": "Event Sub Category"
   },
   {
    "fieldname": "impacted_entity_unit",
    "fieldtype": "Link",
    "label": "Impacted entity unit",
-   "options": "Impacted Entity Units"
+   "options": "Impacted Entity Unit"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-05 15:00:04.528480",
+ "modified": "2022-09-28 13:47:19.634523",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Events",
@@ -162,5 +162,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
