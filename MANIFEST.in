@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include samaaja *.css
+recursive-include samaaja *.csv
+recursive-include samaaja *.html
+recursive-include samaaja *.ico
+recursive-include samaaja *.js
+recursive-include samaaja *.json
+recursive-include samaaja *.md
+recursive-include samaaja *.png
+recursive-include samaaja *.py
+recursive-include samaaja *.svg
+recursive-include samaaja *.txt
+recursive-exclude samaaja *.pyc
