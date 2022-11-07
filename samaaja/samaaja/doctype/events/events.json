@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2022-07-06 20:23:26.567812",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "type",
+  "status",
+  "category",
+  "subcategory",
+  "source",
+  "user",
+  "location",
+  "description",
+  "url",
+  "authority",
+  "has_govt_engagement",
+  "section_break_0",
+  "impacted_entity_count",
+  "impacted_entity_unit",
+  "section_break_2",
+  "followup_count",
+  "feedback",
+  "rating",
+  "time_invested"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "description": "Email address of user who created this event",
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "label": "User"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Event Category"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Link",
+   "label": "Source",
+   "options": "Event Source"
+  },
+  {
+   "fieldname": "authority",
+   "fieldtype": "Data",
+   "label": "Authority"
+  },
+  {
+   "fieldname": "feedback",
+   "fieldtype": "Long Text",
+   "label": "Feedback"
+  },
+  {
+   "fieldname": "time_invested",
+   "fieldtype": "Data",
+   "label": "Time invested"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_govt_engagement",
+   "fieldtype": "Check",
+   "label": "Has engaged government"
+  },
+  {
+   "fieldname": "followup_count",
+   "fieldtype": "Data",
+   "label": "Followup count"
+  },
+  {
+   "default": "0",
+   "fieldname": "impacted_entity_count",
+   "fieldtype": "Data",
+   "label": "Impacted entity count"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Event Type"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Event Status"
+  },
+  {
+   "fieldname": "section_break_0",
+   "fieldtype": "Section Break",
+   "label": "Impacted entities"
+  },
+  {
+   "fieldname": "subcategory",
+   "fieldtype": "Link",
+   "label": "Sub category",
+   "options": "Event Sub Category"
+  },
+  {
+   "fieldname": "impacted_entity_unit",
+   "fieldtype": "Link",
+   "label": "Impacted entity unit",
+   "options": "Impacted Entity Unit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-09-28 13:47:19.634523",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "Events",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
