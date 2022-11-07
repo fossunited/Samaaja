@@ -1,7 +1,7 @@
 # Add location
 
 
-### POST [/api/method/open_civic_backend.api.location.new](http://localfrappe.test:8000/api/method/open_civic_backend.api.location.new)
+### POST [/api/method/samaaja.api.location.new](http://localfrappe.test:8000/api/method/samaaja.api.location.new)
 
 * If latitude and longitude already exists, it will return the existing location data.
 
@@ -11,7 +11,7 @@ curl -X POST -H "Content-Type: application/json" \
  -d '{"latitude":"12.233","longitude":"17.02323",
  "address": "JP Nagar 5th phase, Bengaluru",
  "city": "Bengaluru", "state": "Karnataka"}' \
- 'http://localhost:8000/api/method/civic_backend.civic_backend.api.location.new'
+ 'http://localhost:8000/api/method/samaaja.api.location.new'
 ```
 
 #### Response

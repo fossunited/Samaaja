@@ -5,8 +5,8 @@
 
 * Get the app from the repository.
 
-        bench get-app https://github.com/fossunited/open-civic-backend
+        bench get-app https://github.com/fossunited/Samaaja
 
 * Install app on your site
 
-        bench --site <your-site-name-here> install-app open_civic_backend
+        bench --site <your-site-name-here> install-app samaaja
