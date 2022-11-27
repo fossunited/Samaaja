@@ -56,8 +56,9 @@
   },
   {
    "fieldname": "flagged_document",
-   "fieldtype": "Data",
-   "label": "Flagged document"
+   "fieldtype": "Dynamic Link",
+   "label": "Flagged document",
+   "options": "flagged_doctype"
   },
   {
    "fieldname": "flagged_by",
@@ -73,7 +74,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-15 10:29:02.581374",
+ "modified": "2022-11-26 10:01:12.684827",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Flag",

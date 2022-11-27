@@ -16,6 +16,7 @@
   "user",
   "location",
   "description",
+  "attachment",
   "url",
   "authority",
   "has_govt_engagement",
@@ -137,11 +138,16 @@
    "fieldtype": "Link",
    "label": "Impacted entity unit",
    "options": "Impacted Entity Units"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-05 15:00:04.528480",
+ "modified": "2022-11-26 10:03:11.409567",
  "modified_by": "Administrator",
  "module": "Open Civic Backend",
  "name": "Events",
@@ -162,5 +168,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
