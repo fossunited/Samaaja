@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-11-14 00:17:01.701777",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "flag_type",
+  "status",
+  "flagged_by",
+  "flagged_doctype",
+  "flagged_document",
+  "attachment",
+  "description",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Flag",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "flag_type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Flag Type"
+  },
+  {
+   "fieldname": "flagged_doctype",
+   "fieldtype": "Link",
+   "label": "Flagged doctype",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "flagged_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Flagged document",
+   "options": "flagged_doctype"
+  },
+  {
+   "fieldname": "flagged_by",
+   "fieldtype": "Data",
+   "label": "Flagged by"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Flag Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-12-08 01:06:21.081163",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "Flag",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
