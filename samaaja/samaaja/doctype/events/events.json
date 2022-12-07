@@ -12,13 +12,14 @@
   "status",
   "category",
   "subcategory",
+  "attachment",
   "source",
   "user",
   "location",
   "description",
   "url",
-  "authority",
   "has_govt_engagement",
+  "authority",
   "section_break_0",
   "impacted_entity_count",
   "impacted_entity_unit",
@@ -137,11 +138,16 @@
    "fieldtype": "Link",
    "label": "Impacted entity unit",
    "options": "Impacted Entity Unit"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-28 13:47:19.634523",
+ "modified": "2022-12-08 01:08:10.036411",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",
