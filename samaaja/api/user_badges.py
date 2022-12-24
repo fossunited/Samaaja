@@ -3,7 +3,9 @@ from frappe.utils.safe_exec import check_safe_sql_query
 
 
 def update():
-    # Update badge mapping for all users
+    """Update badge mapping for all users
+    Basically assigns badges to to Users.
+    """
 
     # Get all active badges
     badges = frappe.db.get_list(
@@ -13,9 +15,11 @@ def update():
     )
 
     for badge in badges:
+        # Skip badges without SQL query
         if not badge.query:
             continue
 
+        # Check if SQL query is safe for running.
         check_safe_sql_query(badge.query)
 
         all_users = frappe.db.sql(badge.query, as_dict=True)
@@ -31,12 +35,13 @@ def update():
             frappe.db.sql(update_sql, user_ids)
 
         for user in all_users:
-            # Check if badge already exists for user
+            # Check if an inactive badge exists for the user.
             exists = frappe.db.exists(
                 "User badge",
                 {
                     "user": user.name,
                     "badge": badge.name,
+                    "active": 0,
                 },
             )
             if exists:
