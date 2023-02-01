@@ -344,6 +344,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    Flag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-type" class="md-nav__link">
+    Flag Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-status" class="md-nav__link">
+    Flag Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#badge" class="md-nav__link">
+    Badge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-badge" class="md-nav__link">
+    User Badge
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -538,6 +573,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    Flag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-type" class="md-nav__link">
+    Flag Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-status" class="md-nav__link">
+    Flag Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#badge" class="md-nav__link">
+    Badge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-badge" class="md-nav__link">
+    User Badge
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -717,6 +787,11 @@
 <td><code>subcategory</code></td>
 <td><code>Link</code></td>
 <td>ID of event category stored in <code>Event Sub Categories</code> doctype</td>
+</tr>
+<tr>
+<td><code>attachment</code></td>
+<td><code>Attach</code></td>
+<td>File attachment</td>
 </tr>
 <tr>
 <td><code>source</code></td>
@@ -1059,6 +1134,160 @@
 <td><code>user</code></td>
 <td><code>Data</code></td>
 <td>Email address of user belonging to this organization</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flag">Flag<a class="headerlink" href="#flag" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Flag doctype stores all the Flagged/Reported doctypes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>Data</code></td>
+<td>Title for the flag</td>
+</tr>
+<tr>
+<td><code>flag_type</code></td>
+<td><code>Link</code></td>
+<td>ID of flag type in <code>Flag Type</code> doctype</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>Link</code></td>
+<td>ID of flag status in <code>Flag status</code> doctype</td>
+</tr>
+<tr>
+<td><code>flagged_by</code></td>
+<td><code>Data</code></td>
+<td>Email address of user who created this flag</td>
+</tr>
+<tr>
+<td><code>flagged_doctype</code></td>
+<td><code>Data</code></td>
+<td>The doctype being flagged</td>
+</tr>
+<tr>
+<td><code>flagged_document</code></td>
+<td><code>Data</code></td>
+<td>Document id of doctype being flagged</td>
+</tr>
+<tr>
+<td><code>attachment</code></td>
+<td><code>Attach</code></td>
+<td>Any file attachment</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>Long Text</code></td>
+<td>Description of the flag / report</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flag-type">Flag Type<a class="headerlink" href="#flag-type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>Data</code></td>
+<td>Name of flag type, example- Spam</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flag-status">Flag Status<a class="headerlink" href="#flag-status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>Data</code></td>
+<td>Name of flag status, Example- Created, Approved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="badge">Badge<a class="headerlink" href="#badge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Badge doctype stores all the badges</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>Data</code></td>
+<td>Name of the badge</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td><code>Attach</code></td>
+<td>Icon for the badge</td>
+</tr>
+<tr>
+<td><code>query</code></td>
+<td><code>code</code></td>
+<td>SQL query which returns all the applications <code>User</code> for the badge</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td><code>check</code></td>
+<td>Check to disable/activate a badge</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-badge">User Badge<a class="headerlink" href="#user-badge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>User Badge doctype stores all the badges assigned to Users</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frappe field</th>
+<th>Field type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user</code></td>
+<td><code>Data</code></td>
+<td>Email address of User</td>
+</tr>
+<tr>
+<td><code>badge</code></td>
+<td><code>Link</code></td>
+<td>Badge assigned to User</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td><code>check</code></td>
+<td>Check to disable/activate this assigned badge</td>
 </tr>
 </tbody>
 </table>
