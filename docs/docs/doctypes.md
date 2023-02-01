@@ -41,6 +41,7 @@
 | `status`  | `Link` | ID of event status stored in `Event Status` doctype |
 | `category`   | `Link`   | ID of event category stored in `Event Categories` doctype |
 | `subcategory`   | `Link`   | ID of event category stored in `Event Sub Categories` doctype |
+| `attachment`  | `Attach`     | File attachment |
 | `source`  | `Link`     | ID of event source stored in `Event Source` doctype |
 | `user`  | `Data`      | Email address of User reporting the event |
 | `location`    | `Link`   | ID of location stored in `Locations` doctype |
@@ -154,3 +155,54 @@
 | `org_name`    | `Data`     | Name of the organization |
 | `location`    | `Link`     | ID of location stored in `Locations` doctype |
 | `user`    | `Data`     | Email address of user belonging to this organization |
+
+
+
+### Flag
+- Flag doctype stores all the Flagged/Reported doctypes.
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `title`    | `Data`     | Title for the flag |
+| `flag_type`    | `Link`     | ID of flag type in `Flag Type` doctype |
+| `status`    | `Link`     | ID of flag status in `Flag status` doctype |
+| `flagged_by`    | `Data`     | Email address of user who created this flag |
+| `flagged_doctype`    | `Data`     | The doctype being flagged |
+| `flagged_document`    | `Data`     | Document id of doctype being flagged |
+| `attachment`    | `Attach`     | Any file attachment |
+| `description`    | `Long Text`     | Description of the flag / report |
+
+
+### Flag Type
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `title`    | `Data`     | Name of flag type, example- Spam |
+
+
+### Flag Status
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `title`    | `Data`     | Name of flag status, Example- Created, Approved|
+
+
+### Badge
+- Badge doctype stores all the badges
+  
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `title`    | `Data`     | Name of the badge |
+| `icon`    | `Attach`     | Icon for the badge |
+| `query`    | `code`     | SQL query which returns all the applications `User` for the badge |
+| `active`    | `check`     | Check to disable/activate a badge |
+
+
+### User Badge
+- User Badge doctype stores all the badges assigned to Users
+
+| Frappe field     | Field type|                                                                                                                                     |
+|---------------|--------------------------|------------------------|
+| `user`    | `Data`     | Email address of User |
+| `badge`    | `Link`     | Badge assigned to User |
+| `active`    | `check`     | Check to disable/activate this assigned badge |
