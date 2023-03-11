@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-03-11 17:13:17.699564",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lat_long_precision"
+ ],
+ "fields": [
+  {
+   "default": "9",
+   "description": "All locations in `Location` doctype will have this precision",
+   "fieldname": "lat_long_precision",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Lat Long Precision",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-03-11 17:14:58.989492",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "Samaaja Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
