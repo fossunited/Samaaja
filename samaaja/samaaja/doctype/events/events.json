@@ -16,6 +16,8 @@
   "source",
   "user",
   "location",
+  "latitude",
+  "longitude",
   "description",
   "url",
   "has_govt_engagement",
@@ -143,11 +145,21 @@
    "fieldname": "attachment",
    "fieldtype": "Attach",
    "label": "Attachment"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-08 01:08:10.036411",
+ "modified": "2023-03-11 17:30:15.597669",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",

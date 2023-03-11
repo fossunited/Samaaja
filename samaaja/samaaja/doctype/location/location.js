@@ -22,7 +22,7 @@ frappe.ui.form.on('Location', {
 						if (frm.doc.latitude != geolocationLatitude || frm.doc.longitude != geolocationLongitude) {
 							if (!frm.doc.allow_geolocation_override) {
 								frappe.confirm(
-									__('Entered coordinates are different than the coordinates of the <b>Point</b> in geolocation map data. Are you sure you want to save?'),
+									__('Entered coordinates are different than the coordinates of location selected on the map. <br>Are you sure you want to save?'),
 									function() {
 										frm.doc.allow_geolocation_override = true
 										frm.save()

@@ -34,12 +34,14 @@
  "fields": [
   {
    "fieldname": "latitude",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
+   "precision": 9,
    "label": "Latitude"
   },
   {
    "fieldname": "longitude",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
+   "precision": 9,
    "label": "Longitude"
   },
   {
@@ -152,7 +154,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-28 13:48:15.881067",
+ "modified": "2023-03-10 13:48:15.881067",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Location",

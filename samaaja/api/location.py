@@ -1,6 +1,7 @@
 import frappe
 import json
 from samaaja.api.common import custom_response
+from frappe.utils import flt
 
 
 @frappe.whitelist()
@@ -19,9 +20,17 @@ def new():
 
 
 def new_location(location_data):
+    """Common function to create new location"""
+
+    # Set precision
+    precision = frappe.db.get_single_value(
+        "Samaaja Settings", "lat_long_precision"
+    )
+    precision = precision or 5
+    latitude = flt(location_data.get("latitude"), precision)
+    longitude = flt(location_data.get("longitude"), precision)
+
     loc_name = None
-    latitude = str(location_data.get("latitude"))
-    longitude = str(location_data.get("longitude"))
     if latitude and longitude:
         loc_name = frappe.db.exists(
             "Location",

@@ -1,13 +1,15 @@
 # Copyright (c) 2022, FOSSUnited and contributors
 # For license information, please see license.txt
 import json
+import frappe
 from frappe.model.document import Document
+from frappe.utils import flt
 
 
 class Location(Document):
 
-    # Empty geolocation with a Point
-    geolocation_dict = {
+    # Geolocation with a Point
+    _GEOLOCATION = {
         "type": "FeatureCollection",
         "features": [
             {
@@ -18,8 +20,23 @@ class Location(Document):
         ],
     }
 
+    def validate(self):
+        # set the precision for latitude & longitude
+        precision = frappe.db.get_single_value('Samaaja Settings', 'lat_long_precision')
+
+        # if precision not found set it to 5,
+        # precision of 5 is fairly accurate.
+        if not precision:
+            precision = 5
+
+        self.latitude = flt(self.latitude, precision)
+        self.longitude = flt(self.longitude, precision)
+
     def before_save(self):
 
+        # Check if this location has Geolocation set
+        # if already set, then update that geolocation
+        # else create a new Geolocation with a Point geometry
         has_geolocation = False
         if self.geolocation:
             try:
@@ -45,8 +62,8 @@ class Location(Document):
         elif self.latitude and self.longitude:
             # Only latitude and longitude are provided
             # Create a new Geometry with type Point
-            self.geolocation_dict["features"][0]["geometry"]["coordinates"] = [
+            self._GEOLOCATION["features"][0]["geometry"]["coordinates"] = [
                 self.longitude,
                 self.latitude,
             ]
-            self.geolocation = json.dumps(self.geolocation_dict)
+            self.geolocation = json.dumps(self._GEOLOCATION)
