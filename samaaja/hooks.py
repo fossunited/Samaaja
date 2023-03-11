@@ -15,8 +15,8 @@ app_license = "MIT"
 # app_include_js = "/assets/samaaja/js/samaaja.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/samaaja/css/samaaja.css"
-# web_include_js = "/assets/samaaja/js/samaaja.js"
+web_include_css = "https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+web_include_js = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "samaaja/public/scss/website"

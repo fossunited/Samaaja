@@ -14,6 +14,7 @@
   "subcategory",
   "attachment",
   "source",
+  "anonymous",
   "user",
   "location",
   "latitude",
@@ -155,11 +156,17 @@
    "fieldname": "latitude",
    "fieldtype": "Data",
    "label": "Latitude"
+  },
+  {
+   "default": "0",
+   "fieldname": "anonymous",
+   "fieldtype": "Check",
+   "label": "Anonymous"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-11 17:30:15.597669",
+ "modified": "2023-03-11 18:47:08.873848",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",
