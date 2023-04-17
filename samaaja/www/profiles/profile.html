@@ -64,10 +64,10 @@
             </div>
             {% if not is_logged_in %}
                 {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
-                "target", "needs_login"], filters={"login_required": is_logged_in} ) %}
+                "target"], filters={"login_required": is_logged_in} ) %}
             {% else %}
                 {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
-                    "target", "needs_login"]) %}
+                    "target"]) %}
             {% endif %}
             {% if dropdown_options|length > 0 %}
                 <div class="dropdown profile-dropdown">
