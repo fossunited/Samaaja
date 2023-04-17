@@ -27,7 +27,7 @@
 {% endif %}
 
 <div class="common-page-style profile-page">
-    {% set cover_image = current_user.banner_image if current_user.banner_image else "/assets/lms/images/profile-banner.png" %}
+    {% set cover_image = current_user.banner_image if current_user.banner_image else "/assets/samaaja/images/default-profile-banner.jpg" %}
     {% set badges = frappe.get_all("User badge", filters={"user": current_user.name}, fields=["badge"]) %}
 
     <div class="container">
