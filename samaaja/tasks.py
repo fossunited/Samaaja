@@ -18,8 +18,6 @@ def location_update():
             if response.status_code == 200:
                 response = response.json()
                 if len(response) > 0:
-                    print(doc.name)
-                    print(response)
                     response["state"] = response.pop("u_state", None)
                     response["district"] = response.pop("u_district", None)
                     response["ward_name"] = response.pop("ward", None)

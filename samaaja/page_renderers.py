@@ -28,7 +28,6 @@ def get_profile_url(username):
 
 def get_profile_url_prefix():
     hooks = frappe.get_hooks("profile_url_prefix") or ["/users/"]
-    print("hook ,", hooks)
     return hooks[-1]
 
 
