@@ -1,0 +1,23 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Flag Status",
+  "modified": "2023-04-09 19:22:57.377679",
+  "name": "Pending",
+  "title": "Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Flag Status",
+  "modified": "2023-04-16 20:55:50.051384",
+  "name": "Rejected",
+  "title": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Flag Status",
+  "modified": "2023-04-16 20:55:54.634851",
+  "name": "Approved",
+  "title": "Approved"
+ }
+]

@@ -7,24 +7,42 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "lat_long_precision"
+  "profile_page_section",
+  "hide_badge_section",
+  "badge_section_title",
+  "dropdown_options"
  ],
  "fields": [
   {
-   "default": "9",
-   "description": "All locations in `Location` doctype will have this precision",
-   "fieldname": "lat_long_precision",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Lat Long Precision",
-   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9",
-   "reqd": 1
+   "description": "Use {{current_user}} to access the User document.\n<br>\nExample use case-<br>\n{{current_user.username}} has following badges",
+   "fieldname": "profile_page_section",
+   "fieldtype": "Section Break",
+   "label": "Profile page"
+  },
+  {
+   "depends_on": "eval:doc.hide_badge_section == 0",
+   "fieldname": "badge_section_title",
+   "fieldtype": "Data",
+   "label": "Badge section title",
+   "width": "100"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_badge_section",
+   "fieldtype": "Check",
+   "label": "Hide badge section"
+  },
+  {
+   "fieldname": "dropdown_options",
+   "fieldtype": "Table",
+   "label": "Profile dropdown options",
+   "options": "Samaaja Profile Dropdown Option"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-03-11 17:14:58.989492",
+ "modified": "2023-04-17 23:47:34.146711",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",

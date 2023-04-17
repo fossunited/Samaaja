@@ -15,8 +15,8 @@ app_license = "MIT"
 # app_include_js = "/assets/samaaja/js/samaaja.js"
 
 # include js, css files in header of web template
-web_include_css = "https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-web_include_js = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+web_include_css = ["samaaja.bundle.css"]
+web_include_js = ""
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "samaaja/public/scss/website"
@@ -131,6 +131,16 @@ web_include_js = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
 #	],
 # }
 
+scheduler_events = {
+	"all": [
+		"samaaja.tasks.location_update"
+	],
+ 	"hourly": [
+		"samaaja.tasks.badge_update"
+	],
+}
+
+
 # Testing
 # -------
 
@@ -185,3 +195,20 @@ web_include_js = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
 # auth_hooks = [
 #	"samaaja.auth.validate"
 # ]
+
+page_renderer = [
+	"samaaja.page_renderers.ProfileRedirectPage",
+	"samaaja.page_renderers.ProfilePage",
+]
+
+website_redirects = [
+	{"source": "/update-profile/(.*)", "target": "/edit-profile/"},
+]
+
+has_website_permission = {
+	"Events": "samaaja.samaaja.doctype.events.events.has_website_permission"
+}
+
+profile_url_prefix = "/users/"
+
+fixtures = ["Samaaja Profile Dropdown Option", "Samaaja Profile Tabs", "Flag Status", "Flag Type"]

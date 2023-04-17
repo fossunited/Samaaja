@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-15 18:00:06.425216",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "route",
+  "target",
+  "login_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Route"
+  },
+  {
+   "default": "_self",
+   "fieldname": "target",
+   "fieldtype": "Select",
+   "label": "Target",
+   "options": "_self\n_blank"
+  },
+  {
+   "default": "0",
+   "description": "If login is required to view this dropdown.",
+   "fieldname": "login_required",
+   "fieldtype": "Check",
+   "label": "Login Required"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-04-17 17:24:13.893084",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "Samaaja Profile Dropdown Option",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

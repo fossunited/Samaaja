@@ -22,12 +22,7 @@ class Location(Document):
 
     def validate(self):
         # set the precision for latitude & longitude
-        precision = frappe.db.get_single_value('Samaaja Settings', 'lat_long_precision')
-
-        # if precision not found set it to 5,
-        # precision of 5 is fairly accurate.
-        if not precision:
-            precision = 5
+        precision = 9
 
         self.latitude = flt(self.latitude, precision)
         self.longitude = flt(self.longitude, precision)

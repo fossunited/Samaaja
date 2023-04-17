@@ -56,9 +56,8 @@
   },
   {
    "fieldname": "flagged_document",
-   "fieldtype": "Dynamic Link",
-   "label": "Flagged document",
-   "options": "flagged_doctype"
+   "fieldtype": "Data",
+   "label": "Flagged document"
   },
   {
    "fieldname": "flagged_by",
@@ -74,7 +73,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-08 01:06:21.081163",
+ "modified": "2023-04-09 19:25:58.374827",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Flag",

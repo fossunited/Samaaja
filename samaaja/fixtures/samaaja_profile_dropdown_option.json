@@ -1,0 +1,15 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Samaaja Profile Dropdown Option",
+  "login_required": 1,
+  "modified": "2023-04-17 18:51:00.043978",
+  "name": "48c3b10375",
+  "parent": "Samaaja Settings",
+  "parentfield": "dropdown_options",
+  "parenttype": "Samaaja Settings",
+  "route": "/report-user/new?flagged_document={{current_user.username}}",
+  "target": "_blank",
+  "title": "Report this profile"
+ }
+]

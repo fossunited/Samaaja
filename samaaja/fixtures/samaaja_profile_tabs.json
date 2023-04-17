@@ -1,0 +1,24 @@
+[
+ {
+  "active": 0,
+  "content": "<div class=\"profile-tab-heading\">\n    About \n</div>\n\n<div class=\"profile-tab-description\">\n{% if current_user.bio %}\n{{current_user.bio}}\n{% else %}\n    Hi, my name is {{current_user.full_name}}.\n{% endif %}    \n</div>\n\n",
+  "disable": 0,
+  "docstatus": 0,
+  "doctype": "Samaaja Profile Tabs",
+  "modified": "2023-04-17 23:52:30.604145",
+  "name": "b2901a512c",
+  "tab_order": 1,
+  "title": "About"
+ },
+ {
+  "active": 1,
+  "content": "{% set start = frappe.form_dict.get(\"p\", 1) %}\n{% set start = start|int %}\n\n{% set page_length = 20 %}\n\n{% set total_items = frappe.db.count(\"Events\", filters={\"user\": current_user.name}) %}\n\n{% set pages_required = (total_items / page_length)|round|int %}\n\n{% if pages_required <= 0 %}\n{% set pages_required = 1 %}\n{% endif %}\n\n\n{% if start <= 0 %}\n    {% set start = 1 %}    \n{% endif %}\n\n{% if start > pages_required %}\n    {% set start = pages_required %}    \n{% endif %}\n\n\n{% set db_start = start - 1 %}\n{% set actions = frappe.db.get_list(\"Events\", filters={\"user\": current_user.name},\nfields=[\"name\", \"title\", \"description\", \"creation\", \"location\"], ignore_permissions=1\n, page_length=page_length, start=db_start * page_length, order_by=\"creation desc\") %}\n\n{% for action in actions %}\n{% set exists = frappe.db.exists(\"Location\", action.location) %}\n\n{% set city = None %}\n{% set state = None %}\n{% set district = None %}\n{% if exists %}\n    {% set city, state, district = frappe.db.get_value(\"Location\", action.location, [\"city\", \"state\", \"district\"]) %}\n{% endif %}\n<div class=\"profile-tab-heading\">\n    {{action.title}}\n    {% if frappe.session.user == current_user.name and frappe.session.user != \"Guest\" %}\n        <a style=\"font-size:12px;\" href=\"/edit-actions/{{action.name}}/edit\">Edit</a>\n    {% endif %}\n    <span class=\"samaaja-action-meta small text-muted\">&nbsp;{{frappe.utils.pretty_date(action.creation)}}\n    {% if city or state %}\n        in\n        {% if city %}\n        {{-city-}},\n        {% endif %}\n\n        {% if district %}\n        {{-district-}},\n        {% endif %}\n\n        {% if state %}\n        {{-state-}}\n        {% endif %}\n    {% endif %}\n    </span>\n</div>\n<div class=\"profile-tab-description\">\n    {{-action.description-}} \n</div>\n{% endfor %}\n\n{% if actions|length == 0 %}\n<p>No actions found. </p>\n{% endif %}\n\n<div class=\"text-center\">\n    <div class=\"pagination\">\n    {% if start > 1 %}\n        <a href=\"/users/{{current_user.username}}?p={{start-1}}\">&laquo;</a>\n    {% for i in range(pages_required) %} \n        <a class=\"{% if start == i + 1 %}active{%endif%}\" href=\"/users/{{current_user.username}}?p={{i+1}}\">{{i+1}}</a>\n    {% endfor %}\n    {% endif %}\n    {% if start < pages_required %}\n        <a href=\"/users/{{current_user.username}}?p={{start+1}}\">&raquo;</a>\n    {% endif %}\n    </div>\n</div>",
+  "disable": 0,
+  "docstatus": 0,
+  "doctype": "Samaaja Profile Tabs",
+  "modified": "2023-04-18 01:38:07.929921",
+  "name": "ea4b67fd19",
+  "tab_order": 0,
+  "title": "Actions"
+ }
+]

@@ -9,6 +9,7 @@ def new():
     """
     If lat & long already exists returns the existing location
     else creates a new location and returns it
+    TODO:: have a deduplicate logic.
     """
     location_data = json.loads(frappe.request.data)
     try:
@@ -23,10 +24,7 @@ def new_location(location_data):
     """Common function to create new location"""
 
     # Set precision
-    precision = frappe.db.get_single_value(
-        "Samaaja Settings", "lat_long_precision"
-    )
-    precision = precision or 5
+    precision = 9
     latitude = flt(location_data.get("latitude"), precision)
     longitude = flt(location_data.get("longitude"), precision)
 

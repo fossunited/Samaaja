@@ -13,6 +13,7 @@
   "category",
   "subcategory",
   "attachment",
+  "attachment2",
   "source",
   "anonymous",
   "user",
@@ -31,7 +32,7 @@
   "followup_count",
   "feedback",
   "rating",
-  "time_invested"
+  "hours_invested"
  ],
  "fields": [
   {
@@ -82,11 +83,6 @@
    "fieldname": "feedback",
    "fieldtype": "Long Text",
    "label": "Feedback"
-  },
-  {
-   "fieldname": "time_invested",
-   "fieldtype": "Time",
-   "label": "Time invested"
   },
   {
    "fieldname": "rating",
@@ -151,11 +147,13 @@
   {
    "fieldname": "longitude",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Longitude"
   },
   {
    "fieldname": "latitude",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Latitude"
   },
   {
@@ -167,11 +165,21 @@
   {
    "fieldname": "column_break_19",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attachment2",
+   "fieldtype": "Attach",
+   "label": "Attachment #2"
+  },
+  {
+   "fieldname": "hours_invested",
+   "fieldtype": "Int",
+   "label": "Hours invested"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-06 12:19:59.323412",
+ "modified": "2023-04-18 01:31:02.403682",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",

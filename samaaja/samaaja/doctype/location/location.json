@@ -29,20 +29,21 @@
   "polzone",
   "grama_panchayath",
   "taluk_panchayath",
-  "rwa"
+  "rwa",
+  "location_updated"
  ],
  "fields": [
   {
    "fieldname": "latitude",
    "fieldtype": "Float",
-   "precision": 9,
-   "label": "Latitude"
+   "label": "Latitude",
+   "precision": "9"
   },
   {
    "fieldname": "longitude",
    "fieldtype": "Float",
-   "precision": 9,
-   "label": "Longitude"
+   "label": "Longitude",
+   "precision": "9"
   },
   {
    "fieldname": "address",
@@ -150,11 +151,18 @@
    "fieldname": "ward_number",
    "fieldtype": "Data",
    "label": "Ward No"
+  },
+  {
+   "default": "0",
+   "fieldname": "location_updated",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Location Updated"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-10 13:48:15.881067",
+ "modified": "2023-04-16 22:19:27.041529",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Location",

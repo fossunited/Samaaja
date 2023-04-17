@@ -1,0 +1,173 @@
+{% extends "templates/base.html" %}
+{% block head_include %}
+<meta name="description" content="{{ current_user.full_name }}" />
+<title>{{current_user.full_name}} profile page</title>
+{% endblock %}
+
+
+{% block content %}
+
+{% set profile_tabs = frappe.get_all("Samaaja Profile Tabs", filters={"disable": 0}, fields=["*"], order_by="tab_order")
+%}
+
+{% set tab_titles = [] %}
+
+{% set active_tab = namespace(value="") %}
+
+{% for profile_tab in profile_tabs %}
+    {% set tab_titles = tab_titles.append(profile_tab.title) %}
+    {% if profile_tab.active == 1 %}
+    {% set active_tab.value = profile_tab.title %}
+    {% endif %}
+{% endfor %}
+
+{% set is_logged_in = True %}
+{% if frappe.session.user == "Guest" %}
+    {% set is_logged_in = False %}
+{% endif %}
+
+<div class="common-page-style profile-page">
+    {% set cover_image = current_user.banner_image if current_user.banner_image else "/assets/lms/images/profile-banner.png" %}
+    {% set badges = frappe.get_all("User badge", filters={"user": current_user.name}, fields=["badge"]) %}
+
+    <div class="container">
+        <div class="profile-banner" style="background-image: url({{ cover_image | urlencode }})">
+            <div class="profile-avatar">
+                <span class="avatar avatar-circle" title="{{ current_user.full_name }}">
+                    <a class="button-links" href="#">
+                        {% if current_user.user_image %}
+                        <img class="avatar-frame standard-image" style="object-fit: cover;"
+                            src="{{ current_user.user_image }}" title="{{ current_user.full_name }}">
+                        {% else %}
+                        <img class="avatar-frame standard-image" style="object-fit: cover;"
+                            src="{{ frappe.get_gravatar(current_user.name) }}" title="{{ current_user.full_name }}">
+                        {% endif %}
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="profile-info">
+
+            <div class="profile-name-section">
+                <div class="profile-name" data-name="{{ current_user.name }}"> {{ current_user.full_name }}</div>
+                {% if current_user.profile_badges %}
+                {% set profile_badges = current_user.profile_badges.split(',') %}
+                {% else %}
+                {% set profile_badges = [] %}
+                {% endif %}
+                {% for profile_badge in profile_badges %}
+                {% if profile_badge|trim %}
+                <div class="profile-badge"> {{ _(profile_badge|trim) }} </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% if not is_logged_in %}
+                {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
+                "target", "needs_login"], filters={"login_required": is_logged_in} ) %}
+            {% else %}
+                {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
+                    "target", "needs_login"]) %}
+            {% endif %}
+            {% if dropdown_options|length > 0 %}
+                <div class="dropdown profile-dropdown">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>...</b>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% if frappe.session.user == current_user.name %}
+                            <a class="dropdown-item" href="/edit-profile/{{ current_user.email }}/edit">{{ _("Edit
+                                Profile") }}</a>
+                        {% endif %}
+                        {% for dropdown_option in dropdown_options %}
+                            <a class="dropdown-item" target="{{dropdown_option.target}}"
+                                href="{{frappe.render_template(dropdown_option.route, {'current_user': current_user})}}">{{
+                                _(dropdown_option.title) }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="profile-meta">
+                <!-- User location, profile headline -->
+                {% if current_user.location %}
+                <div class="user-location"><img src="/assets/samaaja/icons/location-sign.svg" width="15" class="mb-1">
+                    {{current_user.location}}</div>
+                {% endif %}
+                {% if current_user.headline %}
+                <div class="mt-2 profile-headline">{{current_user.headline|truncate(350, False, "...")}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="profile-page-body mb-20">
+        {% set badges = frappe.db.sql(
+        """
+        SELECT ub.badge as badge from `tabUser badge` ub inner join `tabBadge` b on b.name = ub.badge
+        where ub.user = %s order by b.priority
+        """, (current_user.name), as_dict=1
+        )
+        %}
+        <div class="container">
+            {% set hide_badge_section = frappe.db.get_single_value("Samaaja Settings", "hide_badge_section") %}
+            {% if badges|length > 0 and not hide_badge_section %}
+            <div class="common-card-style column-card mt-5 mb-5">
+                <div class="profile-tab-heading">
+                    {{-frappe.render_template(frappe.db.get_single_value("Samaaja Settings", "badge_section_title"),
+                    {'current_user': current_user})-}}
+                </div>
+                <div class="profile-meta mt-3 badge-container">
+                    <div class="user-badges">
+                        {% for b in badges %}
+                        {% set badge = frappe.get_doc("Badge", b.badge) %}
+                        {% if badge.active %}
+                        <div class="badge">
+                            <span class="_tooltip">
+                                <img src="{{badge.icon}}" width="100">
+                                <p class="badge-title">{{badge.title}}</p>
+                                {% if badge.description %}
+                                <span class="_tooltiptext">
+                                    {{-badge.description-}}
+                                </span>
+                                {% endif %}
+                            </span>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="card-header samaaja-nav">
+                <ul class="nav nav-tabs card-header-tabs">
+                    {% for tab in tab_titles|unique %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if tab == active_tab.value %}active{% endif %}" data-toggle="tab"
+                            href="#{{tab|lower}}">
+                            {{ _(tab) }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="border-bottom mb-4"></div>
+            <div class="tab-content">
+                {% for tab in tab_titles|unique %}
+                <div class="tab-pane {% if tab == active_tab.value %}active{% endif %}" id="{{tab|lower}}"
+                    role="tabpanel" aria-labelledby="{{tab}}">
+                    {% set all_tab_contents = frappe.get_all("Samaaja Profile Tabs", filters={"title": tab, "disable":
+                    0}, fields=["content"]) %}
+                    {% for tab_content in all_tab_contents %}
+                    <div class="common-card-style column-card mt-5">
+                        {{ frappe.render_template(tab_content.content, {'current_user': current_user}) }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

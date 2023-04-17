@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-09 14:13:35.656996",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "content",
+  "tab_order",
+  "active",
+  "disable"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title"
+  },
+  {
+   "default": "<div class=\"profile-tab-heading\">\n<!-- title for your section goes here -->\n</div>\n\n<div class=\"profile-tab-description\">\n<!-- Content goes here -->\n</div>\n",
+   "fieldname": "content",
+   "fieldtype": "Code",
+   "label": "Content",
+   "options": "HTML",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active Tab"
+  },
+  {
+   "default": "0",
+   "fieldname": "disable",
+   "fieldtype": "Check",
+   "label": "Disable Tab"
+  },
+  {
+   "default": "0",
+   "description": "Tabs are ordered by this value",
+   "fieldname": "tab_order",
+   "fieldtype": "Int",
+   "label": "Tab Order"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-15 17:56:46.746988",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "Samaaja Profile Tabs",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

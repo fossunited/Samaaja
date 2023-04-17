@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2022-12-08 00:50:43.584780",
  "default_view": "List",
  "doctype": "DocType",
@@ -14,7 +15,8 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "title"
+   "label": "title",
+   "unique": 1
   },
   {
    "fieldname": "amended_from",
@@ -27,12 +29,12 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2022-12-08 00:50:43.584780",
+ "modified": "2023-04-09 19:24:43.060062",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Flag Type",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2022-10-09 23:15:15.482700",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,13 +10,16 @@
   "title",
   "icon",
   "query",
+  "description",
+  "priority",
   "active"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "label": "Title",
+   "unique": 1
   },
   {
    "fieldname": "icon",
@@ -23,24 +27,36 @@
    "label": "Icon"
   },
   {
-   "description": "Query should return ID of Users to whom this badge is applicable\n<br>\n\nExample query- <br>\nselect name from `tabUser`;\n",
+   "description": "Query should return ID of Users to whom this badge is applicable\n<br>\n\nExample query- select name from `tabUser`; <br>\nWould assign the badge to all users\n",
    "fieldname": "query",
    "fieldtype": "Code",
-   "label": "Query"
+   "label": "SQL Query"
   },
   {
    "default": "0",
    "fieldname": "active",
    "fieldtype": "Check",
    "label": "Active"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "description": "Badges on the profile page are ordered by their order.",
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Order"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-24 15:13:08.503633",
+ "modified": "2023-04-09 19:52:24.564252",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Badge",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
