@@ -11,7 +11,6 @@ def get_context(context):
             frappe.local.flags.redirect_location = get_profile_url_prefix() + username
             raise frappe.Redirect
 
-    context.title = username.title() + "'s profile page"
     try:
         context.current_user = frappe.get_doc("User", {"username": username})
         approved_report_exists = frappe.db.exists("Flag", {
@@ -22,6 +21,8 @@ def get_context(context):
         if approved_report_exists:
             # raise exception so the page returns 404.
             raise Exception("profile not found")
+        if context.current_user.full_name:
+            context.title = context.current_user.full_name.title() + " | Profile"
     except Exception:
         context.template = "www/404.html"
         return
