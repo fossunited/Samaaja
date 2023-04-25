@@ -21,7 +21,7 @@
    "label": "Title"
   },
   {
-   "default": "<div class=\"profile-tab-heading\">\n<!-- title for your section goes here -->\n</div>\n\n<div class=\"profile-tab-description\">\n<!-- Content goes here -->\n</div>\n",
+   "default": "<!--Replicate this common-card to create separate cards-->\n<div class=\"common-card-style column-card mt-5\">\n    <div class=\"profile-tab-heading\">\n        <!-- Title for card goes here -->\n    </div>\n\n    <div class=\"profile-tab-description\">\n        <!-- Content for card goes here -->\n    </div>\n</div>",
    "fieldname": "content",
    "fieldtype": "Code",
    "label": "Content",
@@ -50,7 +50,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-15 17:56:46.746988",
+ "modified": "2023-04-23 13:59:16.596614",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Profile Tabs",

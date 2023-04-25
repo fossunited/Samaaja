@@ -3,6 +3,11 @@
   --text-3-8xl: 34px;
   --text-4xl: 36px;
   --text-base: 14px;
+  --bg-color: var(--gray-50);
+}
+
+.profile-page {
+  background-color: var(--bg-color);
 }
 
 .profile-banner {
@@ -23,17 +28,18 @@
   box-shadow: var(--shadow-base);
 }
 
-.profile-info {
-  height: max-content;
-  min-height: 169px;
+.profile-info {  
+  max-height: max-content;
+  min-height: 140px;
   background: #ffffff;
   border-radius: 0px 0px 8px 8px;
   font-size: var(--text-sm);
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
-  padding-left: 285px;
+  margin-bottom: 0.6rem;
+  padding-left: 252px;
   padding-right: 1rem;
+  padding-bottom: 7px;
   box-shadow: var(--shadow-sm);
   position: relative;
   .profile-dropdown {
@@ -53,7 +59,7 @@
   }
   .profile-name {
     color: var(--gray-900);
-    font-weight: 600;
+    font-weight: 900;
     font-size: 27px;
   }
 }
@@ -99,8 +105,8 @@
 }
 
 .avatar-circle {
-  width: 210px;
-  height: 210px;
+  width: 190px;
+  height: 190px;
 }
 
 .avatar-circle .avatar-frame {
@@ -147,8 +153,8 @@
 }
 
 .profile-tab-heading {
-  font-weight: 600;
-  font-size: var(--text-3-5xl);
+  font-weight: 900;
+  font-size: 22px;
   letter-spacing: -0.0175em;
   color: var(--gray-900);
   margin-bottom: 0.4rem;
@@ -162,8 +168,33 @@
   }
 }
 
+.action-heading {
+  margin: 0;
+  letter-spacing: -0.0175em;
+  color: var(--gray-900);
+}
+
+.badge-section-heading {
+  font-weight: 800;
+  font-size: var(--text-3-5xl);
+  letter-spacing: -0.0175em;
+  color: var(--gray-900);
+}
+
+.action-image {
+  width: 45%;
+}
+
+@media (max-width: 500px) {
+  .action-image {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+
 .profile-tab-description {
-  font-size: 18px;
+  font-size: 0.875rem;
   color: var(--gray-800);
   margin-bottom: 10px;
   white-space: pre-line;
@@ -178,7 +209,7 @@
 }
 
 .samaaja-nav {
-  background-color: #ffffff;
+  background-color: var(--bg-color);
 }
 
 .profile-meta {
@@ -186,6 +217,8 @@
   color: var(--gray-900);
   .profile-headline {
     font-size: 15px;
+    white-space: pre-wrap;
+    padding-bottom: 5px;
   }
 }
 
@@ -277,4 +310,8 @@
   background-color: #ddd;
   border: 1px solid #e3e3e3;
   border-radius: 50px;
+}
+
+div.profile-page {
+  font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }

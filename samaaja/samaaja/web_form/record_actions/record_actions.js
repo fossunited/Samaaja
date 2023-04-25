@@ -1,4 +1,22 @@
 frappe.ready(function () {
+  frappe.web_form.validate = () => {
+    let data = frappe.web_form.get_values();
+    if (data.title.length > 70) {
+      frappe.msgprint("Please restrict title to max 70 characters.");
+      return false;
+    }
+  };
+
+  frappe.web_form.on("title", (field, value) => {
+    console.log(value)
+    if (value.length > 70) {
+      frappe.msgprint(`Please restrict the title to max 70 characters, <br> You've entered ${value.length} characters in the title`);
+    }
+  });
+
+  $('*[data-fieldname="title"]').attr("maxlength","70");
+
+
   // hide / show fields based on user login information
   if (frappe.session.user && frappe.session.user != "Guest") {
     frappe.web_form.set_value(["user"], frappe.session.user);
@@ -12,17 +30,13 @@ frappe.ready(function () {
         frappe.web_form.set_df_property("user", "hidden", 0);
         frappe.web_form.set_df_property("user", "reqd", 1);
       } else {
-        frappe.web_form.set_value(["user"], "anonymous@samaaja.org");
+        frappe.web_form.set_value(["user"], "");
         frappe.web_form.set_df_property("user", "hidden", 1);
+        frappe.web_form.set_df_property("user", "reqd", 0);
       }
     });
     frappe.web_form.set_df_property("user", "hidden", 0);
   }
-
-  // appned map div element to the form
-  $("div.form-page").append(
-    '<div id ="map" style ="position:relative;width:100%; height:400px;"></div>'
-  );
 
   // default starting position for map
   let defaultPosition = [13.199379, 77.710136];

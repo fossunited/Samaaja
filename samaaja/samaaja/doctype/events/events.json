@@ -12,7 +12,7 @@
   "status",
   "category",
   "subcategory",
-  "attachment",
+  "attachment1",
   "attachment2",
   "source",
   "anonymous",
@@ -140,11 +140,6 @@
    "options": "Impacted Entity Unit"
   },
   {
-   "fieldname": "attachment",
-   "fieldtype": "Attach",
-   "label": "Attachment"
-  },
-  {
    "fieldname": "longitude",
    "fieldtype": "Data",
    "hidden": 1,
@@ -175,11 +170,16 @@
    "fieldname": "hours_invested",
    "fieldtype": "Int",
    "label": "Hours invested"
+  },
+  {
+   "fieldname": "attachment1",
+   "fieldtype": "Attach",
+   "label": "Attachment #1"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-18 01:31:02.403682",
+ "modified": "2023-04-23 15:50:27.100234",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",

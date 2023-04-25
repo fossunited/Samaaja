@@ -156,13 +156,12 @@
    "default": "0",
    "fieldname": "location_updated",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Location Updated"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-16 22:19:27.041529",
+ "modified": "2023-04-23 16:02:32.472238",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Location",

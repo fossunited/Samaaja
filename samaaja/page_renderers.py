@@ -31,25 +31,6 @@ def get_profile_url_prefix():
     return hooks[-1]
 
 
-RE_INVALID_USERNAME = re.compile("[@!#$%^&*()<>?/\\|}{~:-]")
-
-
-class ProfileRedirectPage(BaseRenderer):
-    """Renderer to redirect /profile_/foo to <profile_prefix>/foo.
-
-    This is useful to redirect to profile pages from javascript as there is no
-    easy to find the profile prefix.
-    """
-
-    def can_render(self):
-        return self.path.startswith("profile_/")
-
-    def render(self):
-        username = self.path[len("profile_/"):]
-        frappe.flags.redirect_location = get_profile_url_prefix() + username
-        return RedirectPage(self.path).render()
-
-
 class ProfilePage(BaseRenderer):
     def __init__(self, path, http_status_code):
         super().__init__(path, http_status_code)
@@ -64,10 +45,6 @@ class ProfilePage(BaseRenderer):
         if prefix and not self.path.startswith(prefix):
             return False
 
-        # not a userpage?
-        username = self.get_username()
-        if RE_INVALID_USERNAME.search(username):
-            return False
         # if there is prefix then we can allow all usernames
         if prefix:
             return True

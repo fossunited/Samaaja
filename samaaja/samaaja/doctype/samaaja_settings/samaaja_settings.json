@@ -9,8 +9,10 @@
  "field_order": [
   "profile_page_section",
   "hide_badge_section",
+  "hide_default_tabs",
   "badge_section_title",
-  "dropdown_options"
+  "dropdown_options",
+  "actions_cta_label"
  ],
  "fields": [
   {
@@ -37,12 +39,23 @@
    "fieldtype": "Table",
    "label": "Profile dropdown options",
    "options": "Samaaja Profile Dropdown Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_default_tabs",
+   "fieldtype": "Check",
+   "label": "Hide default tabs"
+  },
+  {
+   "fieldname": "actions_cta_label",
+   "fieldtype": "Data",
+   "label": "Actions CTA Label"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-17 23:47:34.146711",
+ "modified": "2023-04-25 15:33:48.129640",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",

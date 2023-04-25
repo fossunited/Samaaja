@@ -1,12 +1,12 @@
 {% extends "templates/base.html" %}
 {% block head_include %}
 <meta name="description" content="{{ current_user.full_name }}" />
-<title>{{current_user.full_name}} profile page</title>
+<link rel="stylesheet" href="/assets/samaaja/css/lightgallery.css"/>
 {% endblock %}
 
 
 {% block content %}
-
+{% set hide_default_tabs = frappe.db.get_single_value("Samaaja Settings", "hide_default_tabs") %}
 {% set profile_tabs = frappe.get_all("Samaaja Profile Tabs", filters={"disable": 0}, fields=["*"], order_by="tab_order")
 %}
 
@@ -15,19 +15,22 @@
 {% set active_tab = namespace(value="") %}
 
 {% for profile_tab in profile_tabs %}
-    {% set tab_titles = tab_titles.append(profile_tab.title) %}
-    {% if profile_tab.active == 1 %}
-    {% set active_tab.value = profile_tab.title %}
-    {% endif %}
+{% set tab_titles = tab_titles.append(profile_tab.title) %}
+{% if profile_tab.active == 1 %}
+{% set active_tab.value = profile_tab.title %}
+{% endif %}
 {% endfor %}
 
 {% set is_logged_in = True %}
 {% if frappe.session.user == "Guest" %}
-    {% set is_logged_in = False %}
+{% set is_logged_in = False %}
 {% endif %}
 
+{% set actions_page_length = 20 %}
+ 
 <div class="common-page-style profile-page">
-    {% set cover_image = current_user.banner_image if current_user.banner_image else "/assets/samaaja/images/default-profile-banner.jpg" %}
+    {% set cover_image = current_user.banner_image if current_user.banner_image else
+    "/assets/samaaja/images/default-profile-banner.jpg" %}
     {% set badges = frappe.get_all("User badge", filters={"user": current_user.name}, fields=["badge"]) %}
 
     <div class="container">
@@ -63,30 +66,34 @@
                 {% endfor %}
             </div>
             {% if not is_logged_in %}
-                {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
-                "target"], filters={"login_required": is_logged_in} ) %}
+            {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
+            "target"], filters={"login_required": is_logged_in} ) %}
             {% else %}
-                {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
-                    "target"]) %}
+            {% set dropdown_options = frappe.get_all("Samaaja Profile Dropdown Option", fields=["title", "route",
+            "target"]) %}
             {% endif %}
-            {% if dropdown_options|length > 0 %}
-                <div class="dropdown profile-dropdown">
-                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <b>...</b>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        {% if frappe.session.user == current_user.name %}
-                            <a class="dropdown-item" href="/edit-profile/{{ current_user.email }}/edit">{{ _("Edit
-                                Profile") }}</a>
-                        {% endif %}
-                        {% for dropdown_option in dropdown_options %}
-                            <a class="dropdown-item" target="{{dropdown_option.target}}"
-                                href="{{frappe.render_template(dropdown_option.route, {'current_user': current_user})}}">{{
-                                _(dropdown_option.title) }}</a>
-                        {% endfor %}
-                    </div>
+
+            {% if frappe.session.user != "Guest" %}
+            <div class="dropdown profile-dropdown">
+                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>...</b>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% if frappe.session.user == current_user.name %}
+                    <a class="dropdown-item" href="/edit-profile/{{ current_user.email }}/edit">{{ _("Edit
+                        Profile") }}</a>
+                    {% else %}
+                    <a class="dropdown-item" href="/report-user/new?flagged_document={{current_user.username}}">{{
+                        _("Report user") }}</a>
+                    {% endif %}
+                    {% for dropdown_option in dropdown_options %}
+                    <a class="dropdown-item" target="{{dropdown_option.target}}"
+                        href="{{frappe.render_template(dropdown_option.route, {'current_user': current_user})}}">{{
+                        _(dropdown_option.title) }}</a>
+                    {% endfor %}
                 </div>
+            </div>
             {% endif %}
 
             <div class="profile-meta">
@@ -96,12 +103,12 @@
                     {{current_user.location}}</div>
                 {% endif %}
                 {% if current_user.headline %}
-                <div class="mt-2 profile-headline">{{current_user.headline|truncate(350, False, "...")}}</div>
+                <div class="mt-2 profile-headline">{{current_user.headline|truncate(500, False, "...")}}</div>
                 {% endif %}
             </div>
         </div>
     </div>
-    <div class="profile-page-body mb-20">
+    <div class="profile-page-body pb-10">
         {% set badges = frappe.db.sql(
         """
         SELECT ub.badge as badge from `tabUser badge` ub inner join `tabBadge` b on b.name = ub.badge
@@ -112,12 +119,12 @@
         <div class="container">
             {% set hide_badge_section = frappe.db.get_single_value("Samaaja Settings", "hide_badge_section") %}
             {% if badges|length > 0 and not hide_badge_section %}
-            <div class="common-card-style column-card mt-5 mb-5">
-                <div class="profile-tab-heading">
+            <div class="common-card-style column-card mt-5 mb-4">
+                <div class="badge-section-heading">
                     {{-frappe.render_template(frappe.db.get_single_value("Samaaja Settings", "badge_section_title"),
                     {'current_user': current_user})-}}
                 </div>
-                <div class="profile-meta mt-3 badge-container">
+                <div class="profile-meta badge-container">
                     <div class="user-badges">
                         {% for b in badges %}
                         {% set badge = frappe.get_doc("Badge", b.badge) %}
@@ -141,6 +148,18 @@
             {% endif %}
             <div class="card-header samaaja-nav">
                 <ul class="nav nav-tabs card-header-tabs">
+                    {% if not hide_default_tabs %}
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#actions">
+                            Actions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#about">
+                            About
+                        </a>
+                    </li>
+                    {% endif %}
                     {% for tab in tab_titles|unique %}
                     <li class="nav-item">
                         <a class="nav-link {% if tab == active_tab.value %}active{% endif %}" data-toggle="tab"
@@ -154,15 +173,23 @@
 
             <div class="border-bottom mb-4"></div>
             <div class="tab-content">
+                {% if not hide_default_tabs %}
+                <div class="tab-pane active" id="actions" role="tabpanel" aria-labelledby="actions">
+                    {{Action(current_user, actions_page_length)}}
+                </div>
+                <div class="tab-pane" id="about" role="tabpanel" aria-labelledby="about">
+                    <div class="common-card-style column-card mt-5">
+                        {{About(current_user)}}
+                    </div>
+                </div>
+                {% endif %}
                 {% for tab in tab_titles|unique %}
                 <div class="tab-pane {% if tab == active_tab.value %}active{% endif %}" id="{{tab|lower}}"
                     role="tabpanel" aria-labelledby="{{tab}}">
                     {% set all_tab_contents = frappe.get_all("Samaaja Profile Tabs", filters={"title": tab, "disable":
                     0}, fields=["content"]) %}
                     {% for tab_content in all_tab_contents %}
-                    <div class="common-card-style column-card mt-5">
-                        {{ frappe.render_template(tab_content.content, {'current_user': current_user}) }}
-                    </div>
+                    {{ frappe.render_template(tab_content.content, {'current_user': current_user}) }}
                     {% endfor %}
                 </div>
                 {% endfor %}
@@ -170,4 +197,150 @@
         </div>
     </div>
 </div>
+
+<script src="/assets/samaaja/js/lightgallery.min.js"></script>
+<script>
+    {% for page in range(actions_page_length) %}
+    lightGallery(document.getElementById('lightgallery{{loop.index}}'));
+    {% endfor %}
+</script>
 {% endblock %}
+
+{% macro Action(current_user, page_length) %}
+{% set start = frappe.form_dict.get("p", 1) %}
+{% set start = start|int %}
+
+{% set total_items = frappe.db.count("Events", filters={"user": current_user.name}) %}
+
+{% set pages_required = (total_items / page_length)|round|int %}
+
+{% if pages_required <= 0 %} {% set pages_required=1 %} {% endif %} {% if start <=0 %} {% set start=1 %} {% endif %} {%
+    if start> pages_required %}
+    {% set start = pages_required %}
+    {% endif %}
+
+
+    {% set db_start = start - 1 %}
+
+    {% set actions = frappe.db.sql("""
+    SELECT e.name, e.title, e.description, e.creation, e.location, e.attachment1, e.attachment2, e.url
+    from `tabEvents` e 
+    where e.user = %(user)s
+    and e.name not in (
+        SELECT flagged_document from `tabFlag` where flagged_doctype = 'Events' and status = 'Approved'
+    )
+    order by e.creation desc
+    limit %(page_length)s offset %(start)s 
+    """, values={"user": current_user.name, "page_length": page_length, "start": db_start * page_length}, as_dict=1)
+    %}
+
+    {% for action in actions %}
+    {% set exists = frappe.db.exists("Location", action.location) %}
+
+    {% set city = None %}
+    {% set state = None %}
+    {% set district = None %}
+    {% if exists %}
+    {% set city, state, district = frappe.db.get_value("Location", action.location, ["city", "state", "district"]) %}
+    {% endif %}
+    <div class="common-card-style column-card mt-5">
+        <div class="action-heading">
+            <strong>
+            <span>{{action.title}}</span>
+            </strong>
+            <span class=" small text-muted">
+                {% if city or state %}
+                in
+                {% if city %}
+                {{-city-}},
+                {% endif %}
+
+                {% if district %}
+                {{-district-}},
+                {% endif %}
+
+                {% if state %}
+                {{-state-}}
+                {% endif %}
+                {% endif %}
+            </span>
+            {% if frappe.session.user == current_user.name and frappe.session.user != "Guest" %}
+            <a href="/edit-actions/{{action.name}}/edit" style="font-size: 12px;">
+                <img src="/assets/samaaja/icons/edit.png" width="15" class="mb-1 ml-1"/>
+                <strong>Edit</strong>
+            </a>
+            {% endif %}
+            {% if frappe.session.user != current_user.name and frappe.session.user != "Guest" %}
+            <a href="/report-an-action/new?flagged_document={{action.name}}" style="font-size: 12px;">
+                <img src="/assets/samaaja/icons/flag.png" width="15" class="mb-1 ml-1"/>
+                <strong>Report</strong>
+            </a>
+            {% endif %}
+        </div>
+        <span class="small mb-2">
+            {{frappe.utils.pretty_date(action.creation)}}
+        </span>
+        <div class="profile-tab-description">
+            {{-action.description-}}
+        </div>
+        {% if action.url %}
+        <div class="mb-1">
+            <a href="{{action.url}}">{{-action.url-}}</a>
+        </div>
+        {% endif %}
+        <div id="lightgallery{{loop.index}}">
+            {% if action.attachment1 %}
+            <a href="{{-action.attachment1-}}">
+                <img src="{{-action.attachment1-}}" class="action-image">
+            </a>
+            {% endif %}
+            {% if action.attachment2 %}
+            <a href="{{-action.attachment2-}}">
+                <img src="{{-action.attachment2-}}" class="action-image">
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if actions|length == 0 %}
+    <div class="common-card-style column-card mt-5">
+        <p>No actions found for your profile.</p>
+        {% set cta_label = frappe.db.get_single_value("Samaaja Settings", "actions_cta_label") %}
+        <a href="/record-actions/new">
+            {% if cta_label %}
+            <button class="btn btn-success">{{-cta_label-}}</button>
+            {% else %}
+            <button class="btn btn-success">Record your actions!</button>
+            {% endif %}
+        </a>
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-10">
+        <div class="pagination">
+            {% if start > 1 %}
+            <a href="/users/{{current_user.username}}?p={{start-1}}">&laquo;</a>
+            {% endif %}
+            {% if pages_required > 1%}
+            {% for i in range(pages_required) %}
+            <a class="{% if start == i + 1 %}active{% endif %}"
+                href="/users/{{current_user.username}}?p={{i+1}}">{{i+1}}
+            </a>
+            {% endfor %}
+            {% endif %}
+            {% if start < pages_required %} <a href="/users/{{current_user.username}}?p={{start+1}}">&raquo;</a>
+                {% endif %}
+        </div>
+    </div>
+    {% endmacro %}
+
+    {% macro About(current_user) -%}
+    <div class="profile-tab-description">
+        {%- if current_user.bio %}
+        {{-current_user.bio}}
+        {% else %}
+        Hi, my name is {{current_user.full_name}}.
+        {% endif -%}
+    </div>
+    {%- endmacro %}
