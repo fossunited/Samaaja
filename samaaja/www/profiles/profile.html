@@ -305,15 +305,17 @@
 
     {% if actions|length == 0 %}
     <div class="common-card-style column-card mt-5">
-        <p>No actions found for your profile.</p>
+        <p>No actions found.</p>
         {% set cta_label = frappe.db.get_single_value("Samaaja Settings", "actions_cta_label") %}
+        {% if cta_label %}
         <a href="/record-actions/new">
-            {% if cta_label %}
             <button class="btn btn-success">{{-cta_label-}}</button>
-            {% else %}
-            <button class="btn btn-success">Record your actions!</button>
-            {% endif %}
         </a>
+        {% elif frappe.session.user == current_user.name %}
+        <a href="/record-actions/new">
+            <button class="btn btn-success">Record your actions!</button>
+        </a>
+        {% endif %}
     </div>
     {% endif %}
 
