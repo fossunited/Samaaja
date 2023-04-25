@@ -112,7 +112,7 @@
         {% set badges = frappe.db.sql(
         """
         SELECT ub.badge as badge from `tabUser badge` ub inner join `tabBadge` b on b.name = ub.badge
-        where ub.user = %s order by b.priority
+        where ub.user = %s and ub.active = 1 order by b.priority
         """, (current_user.name), as_dict=1
         )
         %}
