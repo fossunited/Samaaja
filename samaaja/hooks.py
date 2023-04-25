@@ -193,7 +193,6 @@ scheduler_events = {
 # ]
 
 page_renderer = [
-    "samaaja.page_renderers.ProfileRedirectPage",
     "samaaja.page_renderers.ProfilePage",
 ]
 
