@@ -19,7 +19,7 @@
   "badge_section_title",
   "badge_section_html",
   "location_section",
-  "geolocation_update_url",
+  "geolocation_api_url",
   "other_section",
   "actions_cta_label"
  ],
@@ -57,11 +57,6 @@
    "fieldname": "location_section",
    "fieldtype": "Section Break",
    "label": "Location"
-  },
-  {
-   "fieldname": "geolocation_update_url",
-   "fieldtype": "Data",
-   "label": "Geo location update URL"
   },
   {
    "fieldname": "badge_section_section",
@@ -110,12 +105,17 @@
    "fieldname": "default_profile_banner",
    "fieldtype": "Attach Image",
    "label": "Default profile banner"
+  },
+  {
+   "fieldname": "geolocation_api_url",
+   "fieldtype": "Data",
+   "label": "Geolocation API URL"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-03 01:20:19.263258",
+ "modified": "2023-05-03 01:33:47.733398",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",

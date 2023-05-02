@@ -7,6 +7,10 @@ from frappe.utils.safe_exec import check_safe_sql_query
 def location_update():
     logger = frappe.logger("samaaja", allow_site=True, file_count=5)
     locations = frappe.get_all("Location", filters={"location_updated": False})
+    geolocation_api_url = frappe.db.get_single_value("Samaaja Settings", "geolocation_api_url")
+    if not geolocation_api_url:
+        logger.warning(f"invalid geolocation api url {geolocation_api_url}")
+        return
     for location in locations:
         doc = frappe.get_doc("Location", location.name)
         data = {
@@ -14,7 +18,7 @@ def location_update():
             "lang": doc.longitude,
         }
         try:
-            response = requests.post("https://locate.solveninja.org/api/gis-info", data=data)
+            response = requests.post(geolocation_api_url, data=data)
             if response.status_code == 200:
                 response = response.json()
                 if len(response) > 0:
@@ -25,7 +29,7 @@ def location_update():
                     doc.update(response)
                     doc.save()
         except Exception as e:
-            logger.error(f"could not update location {doc.name} {str(e)}")
+            logger.error(f"could not update location for {doc.name} {str(e)}")
     frappe.db.commit()
 
 def badge_update():
