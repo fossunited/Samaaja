@@ -6,8 +6,8 @@
 
 
 {% block content %}
-{% set hide_default_tabs = frappe.db.get_single_value("Samaaja Settings", "hide_default_tabs") %}
-{% set profile_tabs = frappe.get_all("Samaaja Profile Tabs", filters={"disable": 0}, fields=["*"], order_by="tab_order")
+{% set samaaja_settings = frappe.get_doc("Samaaja Settings") %}
+{% set profile_tabs = frappe.get_all("Samaaja Profile Tabs", filters={"disable": 0}, fields=["title", "active"], order_by="tab_order")
 %}
 
 {% set tab_titles = [] %}
@@ -29,11 +29,17 @@
 {% set actions_page_length = 20 %}
  
 <div class="common-page-style profile-page">
-    {% set cover_image = current_user.banner_image if current_user.banner_image else
-    "/assets/samaaja/images/default-profile-banner.jpg" %}
-    {% set badges = frappe.get_all("User badge", filters={"user": current_user.name}, fields=["badge"]) %}
 
     <div class="container">
+
+    {% if not samaaja_settings.override_profile_banner %}
+    {% set cover_image = current_user.banner_image if current_user.banner_image else
+    samaaja_settings.default_profile_banner %}
+    {% if not cover_image %}
+    {% set cover_image = "/assets/samaaja/images/default-profile-banner.jpg" %}
+    {% endif %}
+    {% set badges = frappe.get_all("User badge", filters={"user": current_user.name}, fields=["badge"]) %}
+
         <div class="profile-banner" style="background-image: url({{ cover_image | urlencode }})">
             <div class="profile-avatar">
                 <span class="avatar avatar-circle" title="{{ current_user.full_name }}">
@@ -107,21 +113,23 @@
                 {% endif %}
             </div>
         </div>
-    </div>
+    {% else %}
+    {{-frappe.render_template(samaaja_settings.profile_banner_html ,
+        {'current_user': current_user})-}}
+    {% endif %}
     <div class="profile-page-body pb-10">
-        {% set badges = frappe.db.sql(
-        """
-        SELECT ub.badge as badge from `tabUser badge` ub inner join `tabBadge` b on b.name = ub.badge
-        where ub.user = %s and ub.active = 1 order by b.priority
-        """, (current_user.name), as_dict=1
-        )
-        %}
-        <div class="container">
-            {% set hide_badge_section = frappe.db.get_single_value("Samaaja Settings", "hide_badge_section") %}
-            {% if badges|length > 0 and not hide_badge_section %}
+            {% if not samaaja_settings.override_badge_section %}
+            {% set badges = frappe.db.sql(
+                """
+                SELECT ub.badge as badge from `tabUser badge` ub inner join `tabBadge` b on b.name = ub.badge
+                where ub.user = %s and ub.active = 1 order by b.priority
+                """, (current_user.name), as_dict=1
+                )
+            %}
+            {% if badges|length > 0 %}
             <div class="common-card-style column-card mt-5 mb-4">
                 <div class="badge-section-heading">
-                    {{-frappe.render_template(frappe.db.get_single_value("Samaaja Settings", "badge_section_title"),
+                    {{-frappe.render_template(samaaja_settings.badge_section_title,
                     {'current_user': current_user})-}}
                 </div>
                 <div class="profile-meta badge-container">
@@ -146,9 +154,13 @@
                 </div>
             </div>
             {% endif %}
+            {% else %}
+                {{-frappe.render_template(samaaja_settings.badge_section_html ,
+                {'current_user': current_user})-}}
+            {% endif %}
             <div class="card-header samaaja-nav">
                 <ul class="nav nav-tabs card-header-tabs">
-                    {% if not hide_default_tabs %}
+                    {% if not samaaja_settings.hide_default_tabs %}
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#actions">
                             Actions
@@ -173,7 +185,7 @@
 
             <div class="border-bottom mb-4"></div>
             <div class="tab-content">
-                {% if not hide_default_tabs %}
+                {% if not samaaja_settings.hide_default_tabs %}
                 <div class="tab-pane active" id="actions" role="tabpanel" aria-labelledby="actions">
                     {{Action(current_user, actions_page_length)}}
                 </div>
@@ -194,7 +206,6 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
     </div>
 </div>
 
@@ -204,6 +215,8 @@
     lightGallery(document.getElementById('lightgallery{{loop.index}}'));
     {% endfor %}
 </script>
+
+</div>
 {% endblock %}
 
 {% macro Action(current_user, page_length) %}
@@ -306,7 +319,7 @@
     {% if actions|length == 0 %}
     <div class="common-card-style column-card mt-5">
         <p>No actions found.</p>
-        {% set cta_label = frappe.db.get_single_value("Samaaja Settings", "actions_cta_label") %}
+        {% set cta_label = samaaja_settings.actions_cta_label %}
         {% if cta_label %}
         <a href="/record-actions/new">
             <button class="btn btn-success">{{-cta_label-}}</button>

@@ -8,31 +8,33 @@
  "engine": "InnoDB",
  "field_order": [
   "profile_page_section",
-  "hide_badge_section",
+  "default_profile_banner",
   "hide_default_tabs",
-  "badge_section_title",
   "dropdown_options",
+  "profile_banner_section_section",
+  "override_profile_banner",
+  "profile_banner_html",
+  "badge_section_section",
+  "override_badge_section",
+  "badge_section_title",
+  "badge_section_html",
+  "location_section",
+  "geolocation_update_url",
+  "other_section",
   "actions_cta_label"
  ],
  "fields": [
   {
-   "description": "Use {{current_user}} to access the User document.\n<br>\nExample use case-<br>\n{{current_user.username}} has following badges",
    "fieldname": "profile_page_section",
    "fieldtype": "Section Break",
    "label": "Profile page"
   },
   {
-   "depends_on": "eval:doc.hide_badge_section == 0",
+   "depends_on": "eval:doc.override_badge_section == 0",
    "fieldname": "badge_section_title",
    "fieldtype": "Data",
    "label": "Badge section title",
    "width": "100"
-  },
-  {
-   "default": "0",
-   "fieldname": "hide_badge_section",
-   "fieldtype": "Check",
-   "label": "Hide badge section"
   },
   {
    "fieldname": "dropdown_options",
@@ -50,12 +52,70 @@
    "fieldname": "actions_cta_label",
    "fieldtype": "Data",
    "label": "Actions CTA Label"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "geolocation_update_url",
+   "fieldtype": "Data",
+   "label": "Geo location update URL"
+  },
+  {
+   "fieldname": "badge_section_section",
+   "fieldtype": "Section Break",
+   "label": "Profile badge section"
+  },
+  {
+   "depends_on": "eval:doc.override_badge_section == 1",
+   "description": "Use {{current_user}} to access the User document.\nExample use case-\n{{current_user.username}} has following badges\n",
+   "fieldname": "badge_section_html",
+   "fieldtype": "Code",
+   "label": "Badge section HTML",
+   "options": "HTML"
+  },
+  {
+   "default": "0",
+   "fieldname": "override_badge_section",
+   "fieldtype": "Check",
+   "label": "Override badge section"
+  },
+  {
+   "fieldname": "other_section",
+   "fieldtype": "Section Break",
+   "label": "Other"
+  },
+  {
+   "fieldname": "profile_banner_section_section",
+   "fieldtype": "Section Break",
+   "label": "Profile banner section"
+  },
+  {
+   "default": "0",
+   "fieldname": "override_profile_banner",
+   "fieldtype": "Check",
+   "label": "Override profile banner section"
+  },
+  {
+   "depends_on": "eval:doc.override_profile_banner == 1",
+   "description": "Use {{current_user}} to access the User document.\nExample use case-\n{{current_user.username}} has following badges\n",
+   "fieldname": "profile_banner_html",
+   "fieldtype": "Code",
+   "label": "Profile banner HTML",
+   "options": "HTML"
+  },
+  {
+   "fieldname": "default_profile_banner",
+   "fieldtype": "Attach Image",
+   "label": "Default profile banner"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-25 15:33:48.129640",
+ "modified": "2023-05-03 01:20:19.263258",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",
