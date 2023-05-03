@@ -7,6 +7,11 @@ from frappe.utils import validate_email_address
 
 
 class Flag(Document):
+
+    def before_insert(self):
+        self.flagged_by = frappe.session.user
+        self.status = frappe.get_value("Flag Status", "Pending")
+
     def before_save(self):
         # if flagged doctype is User & frappe document is username set the User ID (email) as flagged document.
         if self.flagged_doctype == "User" and not validate_email_address(
