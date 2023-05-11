@@ -187,7 +187,7 @@
             <div class="tab-content">
                 {% if not samaaja_settings.hide_default_tabs %}
                 <div class="tab-pane active" id="actions" role="tabpanel" aria-labelledby="actions">
-                    {{Action(current_user, actions_page_length)}}
+                    {{Action(current_user, actions_page_length, samaaja_settings)}}
                 </div>
                 <div class="tab-pane" id="about" role="tabpanel" aria-labelledby="about">
                     <div class="common-card-style column-card mt-5">
@@ -219,7 +219,7 @@
 </div>
 {% endblock %}
 
-{% macro Action(current_user, page_length) %}
+{% macro Action(current_user, page_length, samaaja_settings) %}
 {% set start = frappe.form_dict.get("p", 1) %}
 {% set start = start|int %}
 
