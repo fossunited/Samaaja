@@ -28,8 +28,9 @@ def get_context(context):
     # Top X cities
     context.top_cities = frappe.db.sql(
         """
-        SELECT city, count(*) as count from `tabLocation` l inner join `tabEvents` e on e.location = l.name
+        SELECT l.city, count(*) as count from `tabLocation` l inner join `tabEvents` e on e.location = l.name
         where e.creation::date > current_date - interval %(day)s day
+        and l.city is NOT NULL
         group by city order by count(*) desc limit %(page_length)s
         """,
         values={
