@@ -85,6 +85,9 @@
 
         {% if loop.index > 1 %}
         {% set bar_width = (top_city.count / first_city_action_count) * bar_width %}
+        {% if bar_width < 1 %}
+        {% set bar_width = 1 %}
+        {% endif %}
         {% endif %}
 
         <div class="row">

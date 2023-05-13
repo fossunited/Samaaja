@@ -56,7 +56,7 @@ def get_context(context):
     
     context.map_points = []
     map_points_query = frappe.db.get_single_value("Samaaja Settings", "map_stats_query")
-    if check_safe_sql_query(map_points_query, throw=False):
+    if map_points_query and check_safe_sql_query(map_points_query, throw=False):
         try:
             context.map_points = frappe.db.sql(map_points_query, as_dict=1)
         except Exception as e:
