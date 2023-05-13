@@ -28,7 +28,7 @@
   box-shadow: var(--shadow-base);
 }
 
-.profile-info {  
+.profile-info {
   max-height: max-content;
   min-height: 140px;
   background: #ffffff;
@@ -192,7 +192,6 @@
   }
 }
 
-
 .profile-tab-description {
   font-size: 0.875rem;
   color: var(--gray-800);
@@ -248,7 +247,6 @@
   user-select: none;
 }
 
-
 ._tooltip ._tooltiptext {
   display: none;
   width: max-content;
@@ -300,7 +298,7 @@
 }
 
 .pagination a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: 1px solid #e3e3e3;
   border-radius: 50px;
@@ -313,5 +311,118 @@
 }
 
 div.profile-page {
-  font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.stats-page-container {
+  #leaderboard-table {
+    border-collapse: separate !important;
+    width: 100%;
+  }
+
+  table#leaderboard-table {
+    border: 1px solid #e3e3e3;
+
+    border-spacing: 0;
+
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-base);
+  }
+
+  section {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .leaderboard-table-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: max-content;
+    max-height: 800px;
+  }
+
+  #leaderboard-table td,
+  #leaderboard-table th {
+    padding: 8px;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  #leaderboard-table tr:nth-child(even) {
+    background-color: rgba(82, 167, 105, 0.1);
+  }
+
+  table#leaderboard-table tr:last-child > td {
+    border-bottom: none;
+  }
+
+  #leaderboard-table tr:hover {
+    background-color: #ddd;
+  }
+
+  #leaderboard-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fff;
+  }
+
+  .leaderboard-profile-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .bar {
+    background-color: rgba(82, 167, 105, 0.9);
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 6px;
+  }
+
+  .bar-city-name {
+    font-size: 1.5rem;
+  }
+
+  .recent-action-card {
+    flex-direction: column;
+    overflow: auto;
+    margin: 0.5rem;
+  }
+
+  .recent-action-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .recent-action-footer {
+    padding: 0.5rem;
+  }
+
+  #stats-map {
+    width: 100%;
+    height: 800px;
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .leaderboard-profile-image {
+      width: 50px;
+      height: 50px;
+    }
+
+    #stats-map {
+      width: 100%;
+      height: 600px !important;
+      margin: 0;
+    }
+    .recent-action-card {
+      width: 170px;
+    }
+    .bar {
+      margin-left: 15px;
+    }
+  }
 }

@@ -2,7 +2,7 @@
 
 Handles rendering of profile pages.
 """
-import re
+# REF- https://github.com/frappe/lms/blob/main/lms/page_renderers.py
 
 import frappe
 from frappe.website.page_renderers.base_renderer import BaseRenderer

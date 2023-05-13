@@ -20,11 +20,21 @@
   "badge_section_html",
   "location_section",
   "geolocation_api_url",
-  "other_section",
-  "actions_cta_label"
+  "map_settings",
+  "action_map_title",
+  "map_stats_query",
+  "leaderboard_setting_section",
+  "leaderboard_page_title",
+  "leaderboard_page_size",
+  "leaderboard_max_days",
+  "top_cities_chart_setting_section",
+  "top_cities_title",
+  "top_cities_max_cities",
+  "top_cities_max_days"
  ],
  "fields": [
   {
+   "collapsible": 1,
    "fieldname": "profile_page_section",
    "fieldtype": "Section Break",
    "label": "Profile page"
@@ -49,16 +59,13 @@
    "label": "Hide default tabs"
   },
   {
-   "fieldname": "actions_cta_label",
-   "fieldtype": "Data",
-   "label": "Actions CTA Label"
-  },
-  {
+   "collapsible": 1,
    "fieldname": "location_section",
    "fieldtype": "Section Break",
    "label": "Location"
   },
   {
+   "collapsible": 1,
    "fieldname": "badge_section_section",
    "fieldtype": "Section Break",
    "label": "Profile badge section"
@@ -78,11 +85,7 @@
    "label": "Override badge section"
   },
   {
-   "fieldname": "other_section",
-   "fieldtype": "Section Break",
-   "label": "Other"
-  },
-  {
+   "collapsible": 1,
    "fieldname": "profile_banner_section_section",
    "fieldtype": "Section Break",
    "label": "Profile banner section"
@@ -110,12 +113,72 @@
    "fieldname": "geolocation_api_url",
    "fieldtype": "Data",
    "label": "Geolocation API URL"
+  },
+  {
+   "description": "Example query-<br>\nselect CAST('Fixed pothole' AS text) AS description, latitude, longitude from `tabLocation`;\n<br><br>\nData returned from this query will be used to show points on the map ",
+   "fieldname": "map_stats_query",
+   "fieldtype": "Code",
+   "label": "Map action points query",
+   "options": "SQL"
+  },
+  {
+   "fieldname": "action_map_title",
+   "fieldtype": "Data",
+   "label": "Title for actions map"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "map_settings",
+   "fieldtype": "Section Break",
+   "label": "Map Setting"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "leaderboard_setting_section",
+   "fieldtype": "Section Break",
+   "label": "Leaderboard Setting"
+  },
+  {
+   "fieldname": "leaderboard_page_size",
+   "fieldtype": "Int",
+   "label": "Page size"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "top_cities_chart_setting_section",
+   "fieldtype": "Section Break",
+   "label": "Top cities setting"
+  },
+  {
+   "fieldname": "top_cities_max_days",
+   "fieldtype": "Int",
+   "label": "Max days"
+  },
+  {
+   "fieldname": "top_cities_title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "top_cities_max_cities",
+   "fieldtype": "Int",
+   "label": "Max cities"
+  },
+  {
+   "fieldname": "leaderboard_max_days",
+   "fieldtype": "Int",
+   "label": "Max days"
+  },
+  {
+   "fieldname": "leaderboard_page_title",
+   "fieldtype": "Data",
+   "label": "Title"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-03 01:33:47.733398",
+ "modified": "2023-05-14 01:48:08.085738",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",

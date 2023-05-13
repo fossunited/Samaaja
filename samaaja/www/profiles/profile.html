@@ -293,9 +293,11 @@
         <span class="small mb-2">
             {{frappe.utils.pretty_date(action.creation)}}
         </span>
+        {% if action.description %}
         <div class="profile-tab-description">
             {{-action.description-}}
         </div>
+        {% endif %}
         {% if action.url %}
         <div class="mb-1">
             <a href="{{action.url}}">{{-action.url-}}</a>
@@ -319,12 +321,7 @@
     {% if actions|length == 0 %}
     <div class="common-card-style column-card mt-5">
         <p>No actions found.</p>
-        {% set cta_label = samaaja_settings.actions_cta_label %}
-        {% if cta_label %}
-        <a href="/record-actions/new">
-            <button class="btn btn-success">{{-cta_label-}}</button>
-        </a>
-        {% elif frappe.session.user == current_user.name %}
+        {% if frappe.session.user == current_user.name %}
         <a href="/record-actions/new">
             <button class="btn btn-success">Record your actions!</button>
         </a>

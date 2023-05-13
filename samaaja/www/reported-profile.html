@@ -12,7 +12,11 @@
 	<img class="img-404" src="/assets/frappe/images/ui-states/404.png" />
 	<div style="margin-top: 10px;">
 		<h3 class="mb-1 mt-4">
-			This profile has been removed for <b>{{flag_type}}</b>
+			{% if flag_type %}
+				This profile has been removed for <b>{{flag_type}}</b>
+			{% else %}
+				This profile has been removed.
+			{% endif %}
 		</h3>
 		<div class="mt-6 back-to-home"><a href='/' class='btn btn-primary'>{{ _("Back to Home") }}</a></div>
 	</div>

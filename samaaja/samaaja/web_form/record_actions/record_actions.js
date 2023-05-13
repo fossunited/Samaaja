@@ -14,7 +14,7 @@ frappe.ready(function () {
     }
   });
 
-  $('*[data-fieldname="title"]').attr("maxlength","70");
+  $('*[data-fieldname="title"]').attr("maxlength", "70");
 
 
   // hide / show fields based on user login information
@@ -39,7 +39,7 @@ frappe.ready(function () {
   }
 
   // default starting position for map
-  let defaultPosition = [13.199379, 77.710136];
+  let defaultPosition = [22.1458, 80.0882];
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showMap, showMap);
@@ -59,7 +59,14 @@ frappe.ready(function () {
     }
     const container = document.getElementById("map");
     if (container) {
-      let map = L.map("map").setView(defaultPosition, 13);
+
+      const screenWidth = window.screen.width;
+
+      let mapZoom = 5.4
+      if (screenWidth < 700) {
+        mapZoom = 4
+      }
+      let map = L.map("map").setView(defaultPosition, mapZoom);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,

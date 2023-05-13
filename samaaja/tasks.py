@@ -18,19 +18,23 @@ def location_update():
             "lang": doc.longitude,
         }
         try:
-            response = requests.post(geolocation_api_url, data=data)
+            response = requests.post(geolocation_api_url, data=data, timeout=15)
             if response.status_code == 200:
                 response = response.json()
                 if len(response) > 0:
                     response["state"] = response.pop("u_state", None)
                     response["district"] = response.pop("u_district", None)
                     response["ward_name"] = response.pop("ward", None)
+                    response["ward_number"] = response.pop("ward_no", None)
+                    response["polzone"] = response("polzonename", None)
+                    response["formatted_address"] = response("formatted_address", None)
+                    response["pin"] = response("postalcode", None)
                     response["location_updated"] = 1
                     doc.update(response)
                     doc.save()
+                    frappe.db.commit()
         except Exception as e:
             logger.error(f"could not update location for {doc.name} {str(e)}")
-    frappe.db.commit()
 
 def badge_update():
     """Assigns and removes badges for all samaaja users."""
@@ -45,16 +49,18 @@ def badge_update():
     for badge in badges:
         # Skip badges without SQL query
         if not badge.query:
-            logger.debug(f"sql query not found for badge {badge.name}")
+            logger.error(f"sql query not found for badge {badge.name}")
             continue
 
         # Check if SQL query is safe for running.
-        check_safe_sql_query(badge.query)
+        if not check_safe_sql_query(badge.query)
+            logger.error(f"query must be of SELECT or read-only WITH type for badge {badge.name}")
+            continue
 
         try:
             all_users = frappe.db.sql(badge.query, as_dict=True)
         except Exception as e:
-            logger.debug(f"error while running {badge.name} badge sql query {str(e)}")
+            logger.error(f"error while running {badge.name} badge sql query {str(e)}")
             continue
 
         # Disable this badge for other users
