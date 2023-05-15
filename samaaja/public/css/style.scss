@@ -410,6 +410,7 @@ div.profile-page {
     border-radius: 50%;
     width: 100px;
     height: 100px;
+    margin-right: 5px;
   }
 
   .bar {
@@ -452,6 +453,12 @@ div.profile-page {
     margin-top: 4rem;
   }
 
+  .recent-actions-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
   @media only screen and (max-width: 600px) {
     .leaderboard-profile-image {
       width: 50px;
@@ -473,13 +480,25 @@ div.profile-page {
       margin-top: 30px !important;
     }
   }
-}
 
+  @media only screen and (max-width: 420px) {
+    .recent-action-card {
+      width: 150px;
+    }
+    .stats-page-container.leaderboard-profile-image {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
 
 @media only screen and (max-width: 992px) {
   .container.stats-page-container {
     padding-left: 1.2rem !important;
     padding-right: 1.2rem !important;
+  }
+  .stats-page-container .bar-city-name {
+    font-size: 1.1rem;
   }
   .container.container-profile {
     padding-left: 1.2rem !important;

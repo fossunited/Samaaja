@@ -38,13 +38,13 @@
                     {% for ld in leaderboard_data %}
                     <tr>
                         <td>
-                            {% if ld.user_image %}
-                            <img src="{{ld.user_image}}" class="mr-2 leaderboard-profile-image" />
+                            {%- if ld.user_image -%}
+                            <img src="{{ld.user_image}}" class="leaderboard-profile-image" />
                             {% else %}
-                            <img src="{{frappe.get_gravatar(ld.name)}}" class="mr-2 leaderboard-profile-image" />
-                            {% endif %}
+                            <img src="{{frappe.get_gravatar(ld.name)}}" class="leaderboard-profile-image" />
+                            {%- endif -%}
                             <span style="margin: auto 0;">
-                                <a href="/users/{{ld.username}}" class="link-no-style">{{ld.first_name}}</a>
+                                <a href="/users/{{ld.username}}">{{-ld.first_name-}}</a>
                             </span>
                         </td>
                         <td>
@@ -111,10 +111,8 @@
     <div class="section-sub-heading">Recent Checkins!</div>
     {% endif %}
 
-    <section class="mt-5">
-        <div class="row">
+    <section class="mt-5 recent-actions-card-container">
             {% for recent_action in recent_actions_with_images %}
-            <div>
                 <div class="common-card-style recent-action-card">
                     <a href="{{recent_action.image}}">
                         <img src="{{recent_action.image}}" class="recent-action-image">
@@ -136,9 +134,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
-        </div>
     </section>
 
     <section class="mt-5">
