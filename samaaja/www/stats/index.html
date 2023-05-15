@@ -7,11 +7,16 @@
 {% block content %}
 <div class="container stats-page-container">
     {% if leaderboard_data|length > 0 %}
-    <div class="mt-16">
+    <div class="first-section">
         {% if samaaja_settings.leaderboard_page_title %}
         {{-frappe.render_template(samaaja_settings.leaderboard_page_title, {})-}}
         {% else %}
-        <div class="section-sub-heading">Top active users!</div>
+        <div class="section-sub-heading">
+            Top Active Citizens
+        </div>
+        <div class="mt-2">
+            <p>Highlighting unique citizens across hundreds of cities solving civic issues in the last 60 days.</p>
+        </div>
         {% endif %}
         <section class="leaderboard-table-container ">
             <table id="leaderboard-table">

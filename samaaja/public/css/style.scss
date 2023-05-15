@@ -317,8 +317,8 @@ div.profile-page {
 }
 
 .link-no-style {
-	text-decoration: none; /* remove underline */
-	color: inherit; /* remove blue */
+  text-decoration: none; /* remove underline */
+  color: inherit; /* remove blue */
 }
 
 .stats-page-container {
@@ -326,24 +326,23 @@ div.profile-page {
   ::-webkit-scrollbar {
     width: 10px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(82, 167, 105, 0.9); 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(82, 167, 105, 0.9); 
   }
 
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(82, 167, 105, 0.9);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(82, 167, 105, 0.9);
+  }
 
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -449,6 +448,10 @@ div.profile-page {
     box-shadow: var(--shadow-base);
   }
 
+  .first-section {
+    margin-top: 4rem;
+  }
+
   @media only screen and (max-width: 600px) {
     .leaderboard-profile-image {
       width: 50px;
@@ -466,5 +469,20 @@ div.profile-page {
     .bar {
       margin-left: 15px;
     }
+    .first-section {
+      margin-top: 30px !important;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+  .container.stats-page-container {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  .container.container-profile {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
   }
 }
