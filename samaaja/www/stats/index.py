@@ -13,7 +13,7 @@ def get_context(context):
     # Users with most actions
     context.leaderboard_data = frappe.db.sql(
         """
-        SELECT u.name, u.username, u.first_name, u.user_image, u.location, sum(e.hours_invested) as hours_invested, count(*) as total_actions from `tabUser` u 
+        SELECT u.name, u.username, u.first_name, u.user_image, u.city as location, sum(e.hours_invested) as hours_invested, count(*) as total_actions from `tabUser` u 
         inner join `tabEvents` e on e.user = u.name where u.enabled = 1
         and e.creation::date > current_date - interval %(day)s day
         group by u.name order by count(*) desc limit %(page_size)s;

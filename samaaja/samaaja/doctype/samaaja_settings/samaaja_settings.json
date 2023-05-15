@@ -22,8 +22,8 @@
   "tab_break_ze49d",
   "location_section",
   "geolocation_api_url",
-  "map_settings",
-  "action_map_title",
+  "recent_actions",
+  "recent_actions_title",
   "map_stats_query",
   "leaderboard_setting_section",
   "leaderboard_page_title",
@@ -125,15 +125,9 @@
   },
   {
    "description": "You can write HTML here.",
-   "fieldname": "action_map_title",
+   "fieldname": "recent_actions_title",
    "fieldtype": "Small Text",
-   "label": "Title for actions map"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "map_settings",
-   "fieldtype": "Section Break",
-   "label": "Map Setting"
+   "label": "Title"
   },
   {
    "collapsible": 1,
@@ -188,12 +182,18 @@
    "fieldname": "tab_break_ze49d",
    "fieldtype": "Tab Break",
    "label": "Stats Page"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "recent_actions",
+   "fieldtype": "Section Break",
+   "label": "Recent Actions"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-15 23:35:40.075569",
+ "modified": "2023-05-16 00:18:09.503268",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Samaaja Settings",
