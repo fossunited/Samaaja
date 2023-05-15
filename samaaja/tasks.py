@@ -53,7 +53,7 @@ def badge_update():
             continue
 
         # Check if SQL query is safe for running.
-        if not check_safe_sql_query(badge.query):
+        if not check_safe_sql_query(badge.query, throw=False):
             logger.error(f"query must be of SELECT or read-only WITH type for badge {badge.name}")
             continue
 

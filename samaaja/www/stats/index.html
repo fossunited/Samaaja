@@ -7,145 +7,137 @@
 {% block content %}
 <div class="container stats-page-container">
     {% if leaderboard_data|length > 0 %}
-    {% if samaaja_settings.leaderboard_page_title %}
-    <h3>{{samaaja_settings.leaderboard_page_title}}</h3>
-    {% else %}
-    <h3>Top active users!</h3>
-    {% endif %}
-    <br>
-    <section class="leaderboard-table-container ">
-        <table id="leaderboard-table">
-            <thead>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Location
-                </th>
-                <th>
-                    Hours
-                </th>
-                <th>
-                    Actions
-                </th>
-            </thead>
-            <tbody>
-                {% for ld in leaderboard_data %}
-                <tr>
-                    <td>
-                        {% if ld.user_image %}
-                        <img src="{{ld.user_image}}" class="mr-2 leaderboard-profile-image" />
-                        {% else %}
-                        <img src="{{frappe.get_gravatar(ld.name)}}" class="mr-2 leaderboard-profile-image" />
-                        {% endif %}
-                        <span style="margin: auto 0">
-                            <b>{{ld.full_name}}</b>
-                        </span>
-                    </td>
-                    <td>
-                        <b>
+    <div class="mt-16">
+        {% if samaaja_settings.leaderboard_page_title %}
+            {{-frappe.render_template(samaaja_settings.leaderboard_page_title, {})-}}
+        {% else %}
+        <div class="section-sub-heading">Top active users!</div>
+        {% endif %}
+        <section class="leaderboard-table-container ">
+            <table id="leaderboard-table">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Hours
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </thead>
+                <tbody>
+                    {% for ld in leaderboard_data %}
+                    <tr>
+                        <td>
+                            {% if ld.user_image %}
+                            <img src="{{ld.user_image}}" class="mr-2 leaderboard-profile-image" />
+                            {% else %}
+                            <img src="{{frappe.get_gravatar(ld.name)}}" class="mr-2 leaderboard-profile-image" />
+                            {% endif %}
+                            <span style="margin: auto 0;">
+                                <a href="/users/{{ld.username}}" class="link-no-style">{{ld.first_name}}</a>
+                            </span>
+                        </td>
+                        <td>
                             {% if ld.location %}
                             {{ld.location}}
                             {% else %}
-                                -
+                            -
                             {% endif %}
-                        </b>
-                    </td>
-                    <td>
-                        <b>
-                            {{ld.hours_invested}}
-                        </b>
-                    </td>
-                    <td>
-                        <b>
+                        </td>
+                        <td>
+                            {{ld.hours_invested|int}}
+                        </td>
+                        <td>
                             {{ld.total_actions}}
-                        </b>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-    </section>
+        </section>
+    </div>
     {% endif %}
 
 
     {% if top_cities|length > 0 %}
-    {% if samaaja_settings.top_cities_title %}
-    <h3>{{samaaja_settings.top_cities_title}}</h3>
-    {% else %}
-    <h3>Top 10 cities with Check-Ins over the last 60 days</h3>
-    {% endif %}
-    {% set bar_width = 80 %}
-
-    <br>
-    <section>
-
-        {% for top_city in top_cities %}
-
-        {% if loop.index > 1 %}
-        {% set bar_width = (top_city.count / first_city_action_count) * bar_width %}
-        {% if bar_width < 1 %}
-        {% set bar_width = 1 %}
+    <div class="mt-20">
+        {% if samaaja_settings.top_cities_title %}
+        <div class="section-sub-heading">{{samaaja_settings.top_cities_title}}</div>
+        {% else %}
+        <div class="section-sub-heading">Top 10 cities with Check-Ins over the last 60 days</div>
         {% endif %}
-        {% endif %}
+        {% set bar_width = 80 %}
 
-        <div class="row">
-            <div class="col-md-2">
-                <b class="bar-city-name">{{top_city.city}}</b>
-            </div>
-            <div class="col-md-10">
-                <div class="row mt-2">
-                    <div class="bar" style="width:{{bar_width}}% !important;">
+        <section class="mt-5">
+
+            {% for top_city in top_cities %}
+
+            {% if loop.index > 1 %}
+            {% set bar_width = (top_city.count / first_city_action_count) * bar_width %}
+            {% if bar_width < 1 %} {% set bar_width=1 %} {% endif %} {% endif %} <div class="row">
+                <div class="col-md-2">
+                    <b class="bar-city-name">{{top_city.city}}</b>
+                </div>
+                <div class="col-md-10">
+                    <div class="row mt-2">
+                        <div class="bar" style="width:{{bar_width}}% !important;">
+                        </div>
+                        <div class="ml-2">
+                            {{top_city.count}}
+                        </div>
                     </div>
-                    <div class="ml-2">
-                        {{top_city.count}}
+                </div>
+    </div>
+    {% endfor %}
+    </section>
+</div>
+{% endif %}
+
+<div class="mt-20">
+{% if samaaja_settings.action_map_title %}
+<div class="section-sub-heading">{{samaaja_settings.action_map_title}}</div>
+{% else %}
+<div class="section-sub-heading">Recent Checkins!</div>
+{% endif %}
+
+<section class="mt-5">
+    <div class="row">
+        {% for recent_action in recent_actions_with_images %}
+        <div>
+            <div class="common-card-style recent-action-card">
+                <a href="{{recent_action.image}}">
+                    <img src="{{recent_action.image}}" class="recent-action-image">
+                </a>
+                <div class="recent-action-footer">
+                    <img src="/assets/samaaja/icons/location-sign.svg" class="mb-1" style="width:.8rem">
+                    {% if recent_action.city %}
+                    {{recent_action.city}}
+                    {% elif recent_action.district %}
+                    {{recent_action.district}}
+                    {% endif %}
+                    <div>
+                        <span class="small mb-2">
+                            {{frappe.utils.pretty_date(recent_action.creation)}}
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
-    </section>
-    <br>
-    {% endif %}
+    </div>
+</section>
 
-    {% if samaaja_settings.action_map_title %}
-    <h3>{{samaaja_settings.action_map_title}}</h3>
-    {% else %}
-    <h3>Recent Checkins!</h3>
-    {% endif %}
 
-    <section>
-        <div class="row">
-            {% for recent_action in recent_actions_with_images %}
-            <div>
-                <div class="common-card-style recent-action-card">
-                    <a href="{{recent_action.image}}">
-                        <img src="{{recent_action.image}}" class="recent-action-image">
-                    </a>
-                    <div class="recent-action-footer">
-                        <img src="/assets/samaaja/icons/location-sign.svg" class="mb-1" style="width:.8rem">
-                        {% if recent_action.city %}
-                        {{recent_action.city}}
-                        {% elif recent_action.district %}
-                        {{recent_action.district}}
-                        {% endif %}
-                        <div>
-                            <span class="small mb-2">
-                                {{frappe.utils.pretty_date(recent_action.creation)}}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section><br>
-
-    <section>
-        <div id="stats-map" style="width:100%;height: 800px;" class="row mb-20">
-    </section>
-
+<section class="mt-5">
+    <div id="stats-map" style="width:100%;height: 800px;" class="row mb-20">
+</section>
+</div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
@@ -166,12 +158,12 @@
     }).addTo(map);
 
     {% for map_point in map_points %}
-        L.marker([
-            {{map_point.latitude}},
-            {{map_point.longitude}}
-        ]).addTo(map).bindPopup(
-            `{{map_point.description}}`
-        )
+    L.marker([
+        {{ map_point.latitude }},
+        {{ map_point.longitude }}
+    ]).addTo(map).bindPopup(
+        `{{map_point.description}}`
+    )
     {% endfor %}
 </script>
 

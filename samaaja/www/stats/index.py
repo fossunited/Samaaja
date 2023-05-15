@@ -13,7 +13,7 @@ def get_context(context):
     # Users with most actions
     context.leaderboard_data = frappe.db.sql(
         """
-        SELECT u.name, u.full_name, u.user_image, u.location, sum(e.hours_invested) as hours_invested, count(*) as total_actions from `tabUser` u 
+        SELECT u.name, u.username, u.first_name, u.user_image, u.location, sum(e.hours_invested) as hours_invested, count(*) as total_actions from `tabUser` u 
         inner join `tabEvents` e on e.user = u.name where u.enabled = 1
         and e.creation::date > current_date - interval %(day)s day
         group by u.name order by count(*) desc limit %(page_size)s;
@@ -24,8 +24,8 @@ def get_context(context):
         },
         as_dict=1
     )
-    
-    # Top X cities
+
+    # Top cities with most checkins
     context.top_cities = frappe.db.sql(
         """
         SELECT l.city, count(*) as count from `tabLocation` l inner join `tabEvents` e on e.location = l.name
@@ -44,12 +44,12 @@ def get_context(context):
     # Recent actions with images
     context.recent_actions_with_images = frappe.db.sql(
         """ 
-            SELECT e.creation, 
-            CASE WHEN e.attachment1 IS NULL THEN e.attachment2
-            ELSE e.attachment1
+            SELECT e.name, e.creation, 
+            CASE WHEN e.attachment1 is not null and e.attachment1 != '' THEN e.attachment1
+            ELSE e.attachment2
             END as image
             , l.district, l.city from `tabEvents` e inner join `tabLocation` l on l.name = e.location 
-            where e.attachment1 is not NULL or e.attachment2 is not NULL
+            where (e.attachment1 is not null and e.attachment1 != '') OR (e.attachment2 is not null and e.attachment2 != '')  
             order by creation desc limit 10;
         """,
         as_dict=1

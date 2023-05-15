@@ -104,9 +104,13 @@
 
             <div class="profile-meta">
                 <!-- User location, profile headline -->
-                {% if current_user.location %}
+                {% if current_user.city %}
                 <div class="user-location"><img src="/assets/samaaja/icons/location-sign.svg" width="15" class="mb-1">
-                    {{current_user.location}}</div>
+                    {{-current_user.city-}}
+                    {%- if current_user.state -%}
+                    ,&nbsp{{-current_user.state-}}
+                    {%- endif -%}
+                </div>
                 {% endif %}
                 {% if current_user.headline %}
                 <div class="mt-2 profile-headline">{{current_user.headline|truncate(500, False, "...")}}</div>
