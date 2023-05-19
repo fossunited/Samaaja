@@ -4,12 +4,11 @@
 import frappe
 from frappe.model.document import Document
 from samaaja.api.location import new_location
-from frappe.utils import validate_email_address
+from frappe.utils import validate_email_address, random_string
 
 
 class Events(Document):
     def before_insert(self):
-
         roles = frappe.get_roles()
 
         # Only system manager is allowed to insert documents on behalf of other users.
@@ -33,13 +32,18 @@ class Events(Document):
                 valid_email = validate_email_address(self.user)
                 if valid_email:
                     user = frappe.new_doc("User")
+                    first_name = (
+                        self.user.split("@")[0].replace(".", "").replace("+", "")
+                    )
+                    username = random_string(8)
                     user.update(
                         {
-                            "first_name": self.user.split("@")[0].replace(".", ""),
+                            "first_name": first_name,
                             "email": self.user,
                             "enabled": 1,
                             "new_password": frappe.generate_hash(),
                             "user_type": "Website User",
+                            "username": username,
                         }
                     )
                     user.save(ignore_permissions=1)

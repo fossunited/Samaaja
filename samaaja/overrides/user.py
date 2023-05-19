@@ -1,8 +1,7 @@
 """Overrides for User doctype"""
 
 import frappe
-import string
-import random
+from frappe.utils import random_string
 
 
 def before_save(doc, _):
@@ -18,18 +17,19 @@ def before_save(doc, _):
                 title="Could not save profile headline",
             )
 
+
 def username(doc, _):
     """Generate random username from first & last name"""
-    size = 6
-    chars = string.ascii_lowercase + string.digits
+    if not doc.username:
+        size = 6
 
-    prefix = doc.first_name
-    if doc.last_name:
-        prefix += "-" + doc.last_name
-    prefix = prefix.lower()
+        prefix = doc.first_name
+        if doc.last_name:
+            prefix += "-" + doc.last_name
+        prefix = prefix.lower()
 
-    username = prefix + "-" + ''.join(random.choice(chars) for _ in range(size))
-    while(frappe.db.get_value("User", {"username": username}, "name")):
-        username = prefix + ''.join(random.choice(chars) for _ in range(size))
+        username = prefix + "-" + random_string(size)
+        while frappe.db.get_value("User", {"username": username}, "name"):
+            username = prefix + random_string(size)
 
-    doc.username = username.lower().replace(".", "").replace(" ","")
+        doc.username = username.lower().replace(".", "").replace(" ", "")

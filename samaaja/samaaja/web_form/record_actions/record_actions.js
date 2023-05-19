@@ -5,6 +5,11 @@ frappe.ready(function () {
       frappe.msgprint("Please restrict title to max 70 characters.");
       return false;
     }
+    if (frappe.web_form.get_value("user") && !(frappe.utils.validate_type(frappe.web_form.get_value("user"), "email"))) {
+      frappe.msgprint('Invalid email address');
+      return false;
+    }
+
   };
 
   frappe.web_form.on("title", (field, value) => {

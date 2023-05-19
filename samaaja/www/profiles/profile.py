@@ -8,6 +8,12 @@ def get_context(context):
         username = frappe.form_dict["username"].lower()
     except KeyError:
         username = frappe.db.get_value("User", frappe.session.user, ["username"])
+        if username == "guest" and frappe.session.user == "Guest":
+            frappe.throw(
+                "Please login to view your profile.",
+                frappe.PermissionError,
+            )
+
         if username:
             frappe.local.flags.redirect_location = get_profile_url_prefix() + username
 
@@ -24,7 +30,9 @@ def get_context(context):
             },
         )
         if approved_report_exists:
-            context.flag_type = frappe.get_value("Flag", approved_report_exists, "flag_type")
+            context.flag_type = frappe.get_value(
+                "Flag", approved_report_exists, "flag_type"
+            )
             context.template = "www/reported-profile.html"
             return
         if context.current_user.full_name:
