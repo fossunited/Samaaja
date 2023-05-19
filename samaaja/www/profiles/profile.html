@@ -142,7 +142,7 @@
                         {% set badge = frappe.get_doc("Badge", b.badge) %}
                         {% if badge.active %}
                         <figure class="badge">
-                            <img src="{{badge.icon}}" alt="Badge icon" class="badge-image" data-toggle="tooltip" data-placement="top" title="{{badge.description}}"/>
+                            <img src="{{badge.icon}}" alt="Badge icon" class="badge-image"  {% if badge.description %} class="badge-image" data-toggle="tooltip" data-placement="top" title="{{badge.description}}" {% endif %}/>
                             <figcaption class="badge-title">{{badge.title}}</figcaption>
                         </figure>
                         {% endif %}
