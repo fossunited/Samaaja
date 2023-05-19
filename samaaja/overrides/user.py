@@ -32,4 +32,4 @@ def username(doc, _):
     while(frappe.db.get_value("User", {"username": username}, "name")):
         username = prefix + ''.join(random.choice(chars) for _ in range(size))
 
-    doc.username = username.lower().replace(".", "")
+    doc.username = username.lower().replace(".", "").replace(" ","")
