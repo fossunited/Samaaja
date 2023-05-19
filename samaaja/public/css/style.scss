@@ -278,9 +278,7 @@
 }
 
 div.profile-page {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .link-no-style {
@@ -311,9 +309,7 @@ div.profile-page {
     background: rgba(82, 167, 105, 0.9);
   }
 
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Inter', sans-serif;
 
   .section-sub-heading {
     font-weight: 900;
@@ -406,6 +402,11 @@ div.profile-page {
   .recent-action-footer {
     padding: 0.5rem;
     min-height: 63px;
+    .location-icon {
+      width: 0.8rem;
+      position: relative;
+      bottom: 2px;
+    }
   }
 
   #stats-map {
