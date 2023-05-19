@@ -105,7 +105,7 @@
             <div class="profile-meta">
                 <!-- User location, profile headline -->
                 {% if current_user.city %}
-                <div class="user-location"><img src="/assets/samaaja/icons/location-sign.svg" width="15" class="mb-1">
+                <div class="user-location"><img src="/assets/samaaja/icons/location-sign.svg" width="13" class="mb-1 mr-1">
                     {{-current_user.city-}}
                     {%- if current_user.state -%}
                     ,&nbsp{{-current_user.state-}}
@@ -136,22 +136,15 @@
                     {{-frappe.render_template(samaaja_settings.badge_section_title,
                     {'current_user': current_user})-}}
                 </div>
-                <div class="profile-meta badge-container">
+                <div class="profile-meta badge-container {% if samaaja_settings.badge_section_title %}pb-3{% endif %}">
                     <div class="user-badges">
                         {% for b in badges %}
                         {% set badge = frappe.get_doc("Badge", b.badge) %}
                         {% if badge.active %}
-                        <div class="badge">
-                            <span class="_tooltip">
-                                <img src="{{badge.icon}}" width="100">
-                                <p class="badge-title">{{badge.title}}</p>
-                                {% if badge.description %}
-                                <span class="_tooltiptext">
-                                    {{-badge.description-}}
-                                </span>
-                                {% endif %}
-                            </span>
-                        </div>
+                        <figure class="badge">
+                            <img src="{{badge.icon}}" alt="Badge icon" class="badge-image" data-toggle="tooltip" data-placement="top" title="{{badge.description}}"/>
+                            <figcaption class="badge-title">{{badge.title}}</figcaption>
+                        </figure>
                         {% endif %}
                         {% endfor %}
                     </div>
@@ -269,28 +262,26 @@
                 {% if city or state %}
                 in
                 {% if city %}
-                {{-city-}},
+                {{-city-}}
                 {% endif %}
 
                 {% if district %}
-                {{-district-}},
+                ,{{-district-}},
                 {% endif %}
 
                 {% if state %}
-                {{-state-}}
+                ,{{-state-}}
                 {% endif %}
                 {% endif %}
             </span>
             {% if frappe.session.user == current_user.name and frappe.session.user != "Guest" %}
-            <a href="/edit-actions/{{action.name}}/edit" style="font-size: 12px;">
-                <img src="/assets/samaaja/icons/edit.png" width="15" class="mb-1 ml-1"/>
-                <strong>Edit</strong>
+            <a href="/edit-actions/{{action.name}}/edit">
+                <img src="/assets/samaaja/icons/edit.png" width="17" class="mb-1 ml-1" data-toggle="tooltip" data-placement="top" title="Edit this action" />
             </a>
             {% endif %}
             {% if frappe.session.user != current_user.name and frappe.session.user != "Guest" %}
-            <a href="/report-an-action/new?flagged_document={{action.name}}" style="font-size: 12px;">
-                <img src="/assets/samaaja/icons/flag.png" width="15" class="mb-1 ml-1"/>
-                <strong>Report</strong>
+            <a href="/report-an-action/new?flagged_document={{action.name}}">
+                <img src="/assets/samaaja/icons/flag.png" width="15" class="mb-1 ml-1" data-toggle="tooltip" data-placement="top" title="Report this action" />
             </a>
             {% endif %}
         </div>

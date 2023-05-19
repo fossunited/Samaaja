@@ -19,8 +19,8 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2023-05-15 22:50:42.394280",
- "modified_by": "abhinav.raut@zerodha.com",
+ "modified": "2023-05-20 01:50:56.499372",
+ "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "edit-your-profile",
  "owner": "Administrator",
@@ -30,7 +30,8 @@
  "show_list": 0,
  "show_sidebar": 0,
  "success_message": "Your profile has been updated.",
- "success_title": "Updated successful",
+ "success_title": "",
+ "success_url": "/profiles/profile",
  "title": "Edit profile",
  "web_form_fields": [
   {

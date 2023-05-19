@@ -197,7 +197,7 @@ page_renderer = [
 ]
 
 website_redirects = [
-    {"source": "/update-profile/(.*)", "target": "/edit-profile/"},
+    {"source": "/update-profile/", "target": "/edit-profile/"},
 ]
 
 has_website_permission = {
