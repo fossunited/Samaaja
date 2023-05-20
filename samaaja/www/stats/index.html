@@ -42,8 +42,9 @@
                             {% else %}
                             <img src="{{frappe.get_gravatar(ld.name)}}" class="leaderboard-profile-image" />
                             {%- endif -%}
-                            <span style="margin: auto 0;">
-                                <a href="/users/{{ld.username}}">{{-ld.first_name-}}</a>
+                            <span>
+                                {% set first_name = ld.first_name.split(" ") %}
+                                <a href="/users/{{ld.username}}"  class="leaderboard-name">{{-first_name[0]-}}</a>
                             </span>
                         </td>
                         <td>

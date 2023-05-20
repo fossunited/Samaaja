@@ -278,7 +278,7 @@
 }
 
 div.profile-page {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .link-no-style {
@@ -309,7 +309,7 @@ div.profile-page {
     background: rgba(82, 167, 105, 0.9);
   }
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
   .section-sub-heading {
     font-weight: 900;
@@ -376,6 +376,13 @@ div.profile-page {
     margin-right: 5px;
   }
 
+  .leaderboard-name {
+    color:#3c4043;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
   .bar {
     background-color: rgba(82, 167, 105, 0.9);
     height: 10px;
@@ -427,10 +434,30 @@ div.profile-page {
     justify-content: space-evenly;
   }
 
+  #leaderboard-table tr td:nth-last-child(1) {
+    text-align: center;
+  }
+  #leaderboard-table tr td:nth-last-child(2) {
+    text-align: center;
+  }
+
+  #leaderboard-table tr th:nth-last-child(1) {
+    text-align: center;
+  }
+
+  #leaderboard-table tr th:nth-last-child(2) {
+    text-align: center;
+  }
+
+
   @media only screen and (max-width: 600px) {
     .leaderboard-profile-image {
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
+    }
+
+    #leaderboard-table td {
+      padding: 0px;
     }
 
     #stats-map {
@@ -454,8 +481,8 @@ div.profile-page {
       width: 150px;
     }
     .stats-page-container.leaderboard-profile-image {
-      width: 42px;
-      height: 42px;
+      width: 35px;
+      height: 35px;
     }
   }
 }
