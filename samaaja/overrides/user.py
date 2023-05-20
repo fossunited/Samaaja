@@ -2,6 +2,7 @@
 
 import frappe
 from frappe.utils import random_string
+from samaaja.samaaja.utils import make_image_public
 
 
 def before_save(doc, _):
@@ -16,6 +17,8 @@ def before_save(doc, _):
                 "Please make sure your profile headline is fewer than 7 lines long and try again.",
                 title="Could not save profile headline",
             )
+    doc.user_image = make_image_public(doc.user_image)
+    doc.banner_image = make_image_public(doc.banner_image)
 
 
 def username(doc, _):

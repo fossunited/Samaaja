@@ -5,9 +5,15 @@ import frappe
 from frappe.model.document import Document
 from samaaja.api.location import new_location
 from frappe.utils import validate_email_address, random_string
+from samaaja.samaaja.utils import make_image_public
 
 
 class Events(Document):
+
+    def validate(self):
+        self.attachment1 = make_image_public(self.attachment1)
+        self.attachment2 = make_image_public(self.attachment2)
+
     def before_insert(self):
         roles = frappe.get_roles()
 

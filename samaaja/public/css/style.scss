@@ -456,8 +456,8 @@ div.profile-page {
       height: 35px;
     }
 
-    #leaderboard-table td {
-      padding: 0px;
+    #leaderboard-table tr td:nth-last-child(1) {
+      padding: 4px 0px;
     }
 
     #stats-map {

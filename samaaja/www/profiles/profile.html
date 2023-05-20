@@ -259,20 +259,20 @@
             <span>{{action.title}}</span>
             </strong>
             <span class=" small text-muted">
-                {% if city or state %}
-                in
-                {% if city %}
+                {%- if city or state or district -%}
+                in&nbsp;
+                {%- if city -%}
                 {{-city-}}
-                {% endif %}
+                {%- endif -%}
 
-                {% if district %}
-                ,{{-district-}},
-                {% endif %}
+                {%- if district -%}
+                ,&nbsp;{{-district-}}
+                {%- endif -%}
 
-                {% if state %}
-                ,{{-state-}}
-                {% endif %}
-                {% endif %}
+                {%- if state -%}
+                ,&nbsp;{{-state-}}
+                {%- endif -%}
+                {%- endif -%}
             </span>
             {% if frappe.session.user == current_user.name and frappe.session.user != "Guest" %}
             <a href="/edit-actions/{{action.name}}/edit">
