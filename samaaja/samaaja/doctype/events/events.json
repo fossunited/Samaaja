@@ -32,7 +32,8 @@
   "followup_count",
   "feedback",
   "rating",
-  "hours_invested"
+  "hours_invested",
+  "verified_by"
  ],
  "fields": [
   {
@@ -175,11 +176,16 @@
    "fieldname": "attachment1",
    "fieldtype": "Attach",
    "label": "Attachment #1"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Data",
+   "label": "Verified by"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-23 15:50:27.100234",
+ "modified": "2023-10-28 10:12:47.434819",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",
