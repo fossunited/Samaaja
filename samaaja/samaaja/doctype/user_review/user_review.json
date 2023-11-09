@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "creation": "2023-11-09 14:30:43.118014",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "column_break_3",
+  "published_on",
+  "reviews_section",
+  "review_title",
+  "rating",
+  "column_break_n7ihn",
+  "reviewer_name",
+  "desigantion",
+  "organisation",
+  "section_break_gd9ic",
+  "comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "published_on",
+   "fieldtype": "Data",
+   "label": "Published on"
+  },
+  {
+   "fieldname": "reviews_section",
+   "fieldtype": "Section Break",
+   "label": "Reviews"
+  },
+  {
+   "fieldname": "review_title",
+   "fieldtype": "Data",
+   "label": "Review Title"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Rating"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "column_break_n7ihn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reviewer_name",
+   "fieldtype": "Data",
+   "label": "Reviewer Name"
+  },
+  {
+   "fieldname": "desigantion",
+   "fieldtype": "Data",
+   "label": "Desigantion"
+  },
+  {
+   "fieldname": "organisation",
+   "fieldtype": "Data",
+   "label": "Organisation"
+  },
+  {
+   "fieldname": "section_break_gd9ic",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "links": [],
+ "modified": "2023-11-09 17:06:26.877138",
+ "modified_by": "Administrator",
+ "module": "Samaaja",
+ "name": "User Review",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
