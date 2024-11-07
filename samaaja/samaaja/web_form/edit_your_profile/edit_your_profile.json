@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2023-05-20 01:50:56.499372",
+ "modified": "2024-11-07 21:18:30.687942",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "edit-your-profile",
@@ -31,7 +31,7 @@
  "show_sidebar": 0,
  "success_message": "Your profile has been updated.",
  "success_title": "",
- "success_url": "/profiles/profile",
+ "success_url": "/user-profile/me",
  "title": "Edit profile",
  "web_form_fields": [
   {
@@ -110,13 +110,14 @@
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "banner_image",
-   "fieldtype": "Attach Image",
+   "allow_read_on_all_link_options": 1,
+   "fieldname": "org_id",
+   "fieldtype": "Link",
    "hidden": 0,
-   "label": "Profile banner image",
+   "label": "User Organization",
    "max_length": 0,
    "max_value": 0,
+   "options": "User Organization",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -130,18 +131,6 @@
    "max_length": 0,
    "max_value": 0,
    "options": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "headline",
-   "fieldtype": "Small Text",
-   "hidden": 0,
-   "label": "Profile Headline",
-   "max_length": 0,
-   "max_value": 0,
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -276,10 +265,11 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "interest",
+   "description": "Comma separated values",
+   "fieldname": "headline",
    "fieldtype": "Small Text",
    "hidden": 0,
-   "label": "Interests",
+   "label": "Focus Area",
    "max_length": 0,
    "max_value": 0,
    "read_only": 0,
@@ -295,19 +285,6 @@
    "max_length": 0,
    "max_value": 0,
    "options": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "phone",
-   "fieldtype": "Data",
-   "hidden": 0,
-   "label": "Phone",
-   "max_length": 0,
-   "max_value": 0,
-   "options": "Phone",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
