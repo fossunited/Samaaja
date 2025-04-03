@@ -8,12 +8,15 @@
  "field_order": [
   "user",
   "badge",
-  "active"
+  "column_break_ihwt5",
+  "active",
+  "badge_count"
  ],
  "fields": [
   {
    "fieldname": "user",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "User"
   },
   {
@@ -26,12 +29,37 @@
    "default": "0",
    "fieldname": "active",
    "fieldtype": "Check",
+   "in_list_view": 1,
    "label": "Active"
+  },
+  {
+   "fieldname": "column_break_ihwt5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "badge_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Badge Count"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2022-10-09 23:17:11.603283",
+ "links": [
+  {
+   "custom": 1,
+   "group": "Energy Point Rule",
+   "link_doctype": "Energy Point Rule",
+   "link_fieldname": "badge"
+  },
+  {
+   "custom": 1,
+   "group": "User badge",
+   "link_doctype": "User badge",
+   "link_fieldname": "badge"
+  }
+ ],
+ "modified": "2025-03-28 16:42:16.801556",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "User badge",
@@ -53,5 +81,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "badge",
  "track_changes": 1
 }

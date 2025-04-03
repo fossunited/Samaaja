@@ -4,6 +4,35 @@ import frappe
 import requests
 from frappe.utils.safe_exec import check_safe_sql_query
 
+def badge_update1():
+    logger = frappe.logger("samaaja", allow_site=True, file_count=5)
+    logger.info('usernames update started')
+    users = frappe.db.get_all('User',filters={'username':''})
+    size = 6
+    for user in users:
+        doc = frappe.get_doc('User',user.name)
+        prefix = doc.first_name
+        if doc.last_name:
+            prefix += "-" + doc.last_name
+        prefix = prefix.lower()
+
+        username = prefix + "-" + random_string(size)
+        while frappe.db.get_value("User", {"username": username}, "name"):
+            username = prefix + random_string(size)
+
+        doc.username = username.lower().replace(".", "").replace(" ", "")
+        doc.save()
+        frappe.db.commit()
+        logger.info(f"username created for  {doc.email}")
+        break
+
+
+
+
+
+
+
+
 def location_update():
     logger = frappe.logger("samaaja", allow_site=True, file_count=5)
     locations = frappe.get_all("Location", filters={"location_updated": False})
@@ -39,6 +68,7 @@ def location_update():
 def badge_update():
     """Assigns and removes badges for all samaaja users."""
     logger = frappe.logger("samaaja", allow_site=True, file_count=5)
+    logger.info("user badge assignment job started")
     # Get all active badges
     badges = frappe.db.get_list(
         "Badge",
