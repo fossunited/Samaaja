@@ -5,7 +5,6 @@
  "allow_incomplete": 0,
  "allow_multiple": 0,
  "allow_print": 0,
- "anonymous": 0,
  "apply_document_permissions": 0,
  "breadcrumbs": "",
  "button_label": "Update",
@@ -20,8 +19,8 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2023-05-20 01:50:13.760422",
- "modified_by": "Administrator",
+ "modified": "2023-06-22 14:48:21.430103",
+ "modified_by": "ankit@projecttech4dev.org",
  "module": "Samaaja",
  "name": "edit-actions",
  "owner": "Administrator",
@@ -31,7 +30,7 @@
  "show_list": 0,
  "show_sidebar": 0,
  "success_message": "Your action has been updated",
- "success_url": "/profiles/profile",
+ "success_url": "/user-profile/me",
  "title": "Edit Actions",
  "web_form_fields": [
   {

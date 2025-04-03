@@ -132,8 +132,8 @@ web_include_js = ""
 # }
 
 scheduler_events = {
-    "all": ["samaaja.tasks.location_update"],
-    "hourly": ["samaaja.tasks.badge_update"],
+    #"all": ["samaaja.tasks.location_update"],
+    "hourly": ["samaaja.tasks.badge_update"]
 }
 
 
@@ -211,5 +211,8 @@ doc_events = {
     "User": {
         "before_save": "samaaja.overrides.user.before_save",
         "before_insert": "samaaja.overrides.user.username"
+    },
+    "Energy Point Log": {
+        "before_insert": "samaaja.overrides.energy_point_log.before_insert"
     }
 }
