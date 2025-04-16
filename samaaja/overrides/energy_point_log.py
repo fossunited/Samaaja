@@ -2,6 +2,7 @@ import frappe
 
 
 def before_insert(doc, method):
+    doc.flags.ignore_permissions = True
     if not doc.user:
         return
     if doc.type == "Auto" and doc.badge:
@@ -18,9 +19,10 @@ def before_insert(doc, method):
                 "active": 1,
                 "badge_count": 1
             })
-            user_badge.insert()
+            user_badge.insert(ignore_permissions = True)
 
         user_badge.active = 1  # Ensure it's active
+        user_badge.flags.ignore_permissions = True
         user_badge.save()
 
     elif doc.type == "Revert" and doc.revert_of:
@@ -40,4 +42,5 @@ def before_insert(doc, method):
                 
                 # Deactivate if count reaches zero
                 user_badge.active = 1 if user_badge.badge_count > 0 else 0
+                user_badge.flags.ignore_permissions = True
                 user_badge.save()
