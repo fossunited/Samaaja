@@ -133,7 +133,7 @@ web_include_js = ""
 
 scheduler_events = {
     #"all": ["samaaja.tasks.location_update"],
-    "hourly": ["samaaja.tasks.badge_update"]
+    # "hourly": ["samaaja.tasks.badge_update"]
 }
 
 
