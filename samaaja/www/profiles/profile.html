@@ -104,16 +104,16 @@
 
             <div class="profile-meta">
                 <!-- User location, profile headline -->
-                {% if current_user.city %}
+                {% if current_user_metadata.city %}
                 <div class="user-location"><img src="/assets/samaaja/icons/location-sign.svg" width="13" class="mb-1 mr-1">
-                    {{-current_user.city-}}
-                    {%- if current_user.state -%}
-                    ,&nbsp{{-current_user.state-}}
+                    {{- current_user_metadata.city-}}
+                    {%- if current_user_metadata.state -%}
+                    ,&nbsp{{-current_user_metadata.state-}}
                     {%- endif -%}
                 </div>
                 {% endif %}
-                {% if current_user.headline %}
-                <div class="mt-2 profile-headline">{{current_user.headline|truncate(500, False, "...")}}</div>
+                {% if current_user.bio %}
+                <div class="mt-2 profile-headline">{{current_user.bio|truncate(500, False, "...")}}</div>
                 {% endif %}
             </div>
         </div>

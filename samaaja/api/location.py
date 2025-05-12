@@ -3,32 +3,57 @@ import json
 from samaaja.api.common import custom_response
 from frappe.utils import flt
 
-
 @frappe.whitelist()
 def new():
     """
-    If lat & long already exists returns the existing location
-    else creates a new location and returns it
-    TODO:: have a deduplicate logic.
+    Creates a new Location if it does not already exist based on latitude and longitude.
+    If the location already exists, it returns the existing location.
+
+    TODO: Implement deduplication logic to prevent multiple locations with the same coordinates.
+
+    Returns:
+        Response: A custom HTTP response containing the location data or an error message.
     """
+    # Parse incoming data from the request
     location_data = json.loads(frappe.request.data)
+    
     try:
+        # Attempt to create or fetch the location
         loc_data = new_location(location_data)
+        
+        # Return success response with location data
         return custom_response(loc_data, 200)
+    
     except Exception as e:
+        # Rollback any changes if an error occurs
         frappe.db.rollback()
+        
+        # Return error response
         return custom_response(str(e), None, 500, True)
 
 
 def new_location(location_data):
-    """Common function to create new location"""
+    """
+    Creates a new Location or retrieves an existing one based on latitude and longitude.
+    
+    If a location with the same latitude and longitude already exists, it is returned.
+    Otherwise, a new location is created and returned.
 
-    # Set precision
+    Parameters:
+        location_data (dict): The data containing latitude, longitude, and other location details.
+
+    Returns:
+        dict: A dictionary representing the location.
+    """
+    
+    # Set precision for latitude and longitude
     precision = 9
     latitude = flt(location_data.get("latitude"), precision)
     longitude = flt(location_data.get("longitude"), precision)
 
     loc_name = None
+    
+    # Check if the location already exists
     if latitude and longitude:
         loc_name = frappe.db.exists(
             "Location",
@@ -37,13 +62,14 @@ def new_location(location_data):
                 "longitude": longitude,
             },
         )
+
     if loc_name:
+        # Location exists, fetch it and mark it as not new
         location = frappe.get_doc("Location", loc_name)
         location = location.as_dict()
-
-        # Field to identify if the location is already created
         location["is_new"] = False
     else:
+        # Location does not exist, create a new one
         location = frappe.get_doc(
             {
                 "doctype": "Location",
@@ -53,4 +79,5 @@ def new_location(location_data):
         location.insert(ignore_permissions=True)
         location = location.as_dict()
         location["is_new"] = True
+    
     return location

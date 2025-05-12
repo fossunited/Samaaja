@@ -7,33 +7,47 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "details_tab",
+  "event_info_section",
+  "column_break_auos",
   "title",
   "type",
   "status",
   "category",
   "subcategory",
-  "attachment1",
-  "attachment2",
-  "source",
+  "column_break_vejr",
+  "description",
+  "reporting_section",
   "anonymous",
   "user",
+  "column_break_krxh",
+  "source",
+  "attachments_section",
+  "attachment1",
+  "column_break_hykn",
+  "attachment2",
+  "location_authority_tab",
+  "location_section",
   "location",
+  "url",
+  "column_break_oaub",
   "latitude",
   "longitude",
-  "description",
-  "url",
+  "govt_engagement_section",
   "has_govt_engagement",
   "authority",
+  "impact_feedback_tab",
   "section_break_0",
   "impacted_entity_count",
   "column_break_19",
   "impacted_entity_unit",
   "section_break_2",
-  "followup_count",
-  "feedback",
   "rating",
+  "followup_count",
   "hours_invested",
-  "verified_by"
+  "verified_by",
+  "column_break_bour",
+  "feedback"
  ],
  "fields": [
   {
@@ -44,25 +58,28 @@
   {
    "fieldname": "type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Type",
    "options": "Event Type"
   },
   {
    "fieldname": "status",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Status",
    "options": "Event Status"
   },
   {
    "fieldname": "category",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Category",
    "options": "Event Category"
   },
   {
    "fieldname": "subcategory",
    "fieldtype": "Link",
-   "label": "Sub category",
+   "label": "Sub Category",
    "options": "Event Sub Category"
   },
   {
@@ -135,13 +152,13 @@
   {
    "fieldname": "section_break_0",
    "fieldtype": "Section Break",
-   "label": "Impacted entities"
+   "label": "Impacted Entities"
   },
   {
    "default": "0",
    "fieldname": "impacted_entity_count",
    "fieldtype": "Data",
-   "label": "Impacted entity count"
+   "label": "Impacted Entity Count"
   },
   {
    "fieldname": "column_break_19",
@@ -150,12 +167,13 @@
   {
    "fieldname": "impacted_entity_unit",
    "fieldtype": "Link",
-   "label": "Impacted entity unit",
+   "label": "Impacted Entity Unit",
    "options": "Impacted Entity Unit"
   },
   {
    "fieldname": "section_break_2",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Feedback & Closure"
   },
   {
    "fieldname": "followup_count",
@@ -175,17 +193,81 @@
   {
    "fieldname": "hours_invested",
    "fieldtype": "Float",
-   "label": "Hours invested"
+   "label": "Hours Invested"
   },
   {
    "fieldname": "verified_by",
    "fieldtype": "Data",
-   "label": "Verified by"
+   "label": "Verified By"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "location_authority_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location & Authority"
+  },
+  {
+   "fieldname": "impact_feedback_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact & Feedback"
+  },
+  {
+   "fieldname": "column_break_auos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "column_break_oaub",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "govt_engagement_section",
+   "fieldtype": "Section Break",
+   "label": "Govt Engagement"
+  },
+  {
+   "fieldname": "column_break_bour",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "event_info_section",
+   "fieldtype": "Section Break",
+   "label": "Event Info"
+  },
+  {
+   "fieldname": "column_break_vejr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reporting_section",
+   "fieldtype": "Section Break",
+   "label": "Reporting"
+  },
+  {
+   "fieldname": "column_break_krxh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "column_break_hykn",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-03 19:45:37.805535",
+ "modified": "2025-05-08 14:05:10.706475",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",
@@ -207,5 +289,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1
 }

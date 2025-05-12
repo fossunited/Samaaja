@@ -7,19 +7,30 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "basic_info_tab",
+  "asset_overview_section",
+  "column_break_ozkr",
   "title",
-  "type",
-  "status",
-  "category",
-  "subcategory",
   "description",
+  "column_break_frbj",
+  "status",
+  "type",
+  "subcategory",
+  "category",
+  "user_details_section",
   "user",
+  "column_break_zxhu",
   "phone_number",
+  "location_timing_tab",
+  "location_contact_section",
   "location",
+  "column_break_vjpw",
   "url",
+  "operational_info_section",
   "open_time",
-  "close_time",
-  "rating"
+  "rating",
+  "column_break_pbmr",
+  "close_time"
  ],
  "fields": [
   {
@@ -47,7 +58,7 @@
   {
    "fieldname": "open_time",
    "fieldtype": "Datetime",
-   "label": "Open time"
+   "label": "Open Time"
   },
   {
    "fieldname": "close_time",
@@ -63,43 +74,95 @@
    "fieldname": "category",
    "fieldtype": "Link",
    "label": "Category",
-   "options": "Asset Category"
+   "options": "Samaaja Asset Category"
   },
   {
    "fieldname": "phone_number",
    "fieldtype": "Data",
-   "label": "Phone numbers"
+   "label": "Phone Number"
   },
   {
    "fieldname": "title",
-   "fieldtype": "Long Text",
+   "fieldtype": "Data",
    "label": "Title"
   },
   {
    "fieldname": "subcategory",
    "fieldtype": "Link",
    "label": "Sub Category",
-   "options": "Asset Sub Category"
+   "options": "Samaaja Asset Sub Category"
   },
   {
    "fieldname": "status",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Status",
-   "options": "Asset Status"
+   "options": "Samaaja Asset Status"
   },
   {
    "fieldname": "type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Type",
-   "options": "Asset Type"
+   "options": "Samaaja Asset Type"
+  },
+  {
+   "fieldname": "asset_overview_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Overview"
+  },
+  {
+   "fieldname": "column_break_ozkr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "basic_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Info"
+  },
+  {
+   "fieldname": "location_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Location & Contact"
+  },
+  {
+   "fieldname": "column_break_frbj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zxhu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vjpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "operational_info_section",
+   "fieldtype": "Section Break",
+   "label": "Operational Info"
+  },
+  {
+   "fieldname": "column_break_pbmr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "user_details_section",
+   "fieldtype": "Section Break",
+   "label": "User Details"
+  },
+  {
+   "fieldname": "location_timing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location & Timing"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-28 13:47:19.504787",
+ "modified": "2025-05-08 11:04:18.314416",
  "modified_by": "Administrator",
  "module": "Samaaja",
- "name": "Asset",
+ "name": "Samaaja Asset",
  "owner": "Administrator",
  "permissions": [
   {
@@ -118,5 +181,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1
 }

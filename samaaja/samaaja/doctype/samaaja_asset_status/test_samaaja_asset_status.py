@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestAssetStatus(unittest.TestCase):
+class TestSamaajaAssetStatus(unittest.TestCase):
 	pass

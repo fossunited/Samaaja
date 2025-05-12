@@ -12,6 +12,7 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "subcategory",
    "fieldtype": "Data",
    "label": "Sub Category",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-07 08:58:08.286764",
+ "modified": "2025-05-08 11:03:00.658878",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Event Sub Category",
@@ -40,6 +41,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

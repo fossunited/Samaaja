@@ -12,6 +12,7 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "type",
    "fieldtype": "Data",
    "label": "Type",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-16 16:37:19.760362",
+ "modified": "2025-05-08 11:03:11.195026",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Event Type",
@@ -40,6 +41,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

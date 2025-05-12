@@ -1,0 +1,9 @@
+
+[pre_model_sync]
+
+
+[post_model_sync]
+samaaja.patches.v15_0.create_user_metadata_for_existing_users
+samaaja.patches.v15_0.update_user_bio_from_headline
+
+

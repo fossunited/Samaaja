@@ -21,6 +21,7 @@ def get_context(context):
 
     try:
         context.current_user = frappe.get_doc("User", {"username": username})
+        context.current_user_metadata = frappe.get_doc("User Metadata", context.current_user.name)
         approved_report_exists = frappe.db.exists(
             "Flag",
             {

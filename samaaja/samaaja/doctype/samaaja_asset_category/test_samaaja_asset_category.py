@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestAssetCategory(unittest.TestCase):
+class TestSamaajaAssetCategory(unittest.TestCase):
 	pass

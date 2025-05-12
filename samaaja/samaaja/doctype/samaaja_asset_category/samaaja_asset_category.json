@@ -2,28 +2,29 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:status",
- "creation": "2022-07-29 10:38:51.050145",
+ "autoname": "field:category",
+ "creation": "2022-07-14 12:26:27.631830",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "status"
+  "category"
  ],
  "fields": [
   {
-   "fieldname": "status",
+   "allow_in_quick_entry": 1,
+   "fieldname": "category",
    "fieldtype": "Data",
-   "label": "Status",
+   "label": "Category",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-05 15:01:27.799666",
+ "modified": "2025-05-08 11:02:10.097418",
  "modified_by": "Administrator",
  "module": "Samaaja",
- "name": "Asset Status",
+ "name": "Samaaja Asset Category",
  "owner": "Administrator",
  "permissions": [
   {
@@ -39,7 +40,9 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

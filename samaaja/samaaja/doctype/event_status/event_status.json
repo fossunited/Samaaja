@@ -12,6 +12,7 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-05 15:01:45.759451",
+ "modified": "2025-05-08 11:02:40.273154",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Event Status",
@@ -39,7 +40,9 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

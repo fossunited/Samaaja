@@ -5,23 +5,29 @@ from frappe.utils import random_string
 from samaaja.samaaja.utils import make_image_public
 
 
-def before_save(doc, _):
+def make_user_images_public(doc, method=None):
     """
-    Number of new lines check for profile headline
+    Make user_image and banner_image publicly accessible.
+
+    Converts private file URLs to public ones using the `make_image_public` utility.
+    Typically used in the `before_save` hook of the User doctype.
     """
-    if doc.headline:
-        doc.headline = doc.headline.strip("\n")
-        nlines = doc.headline.count("\n")
-        if nlines > 5:
-            frappe.throw(
-                "Please make sure your profile headline is fewer than 7 lines long and try again.",
-                title="Could not save profile headline",
-            )
     doc.user_image = make_image_public(doc.user_image)
     doc.banner_image = make_image_public(doc.banner_image)
 
 
-def username(doc, _):
+def create_user_metadata(doc, method=None):
+    if not frappe.db.exists("User Metadata", {"user": doc.name}) and doc.name != "Administrator":
+        frappe.get_doc({
+            "doctype": "User Metadata",
+            "user": doc.name
+        }).insert(ignore_permissions=True)
+
+def delete_user_metadata(doc, method=None):
+    if frappe.db.exists("User Metadata", doc.name):
+        frappe.delete_doc("User Metadata", doc.name)
+
+def generate_username_if_missing(doc, method=None):
     """Generate random username from first & last name"""
     if not doc.username:
         size = 6

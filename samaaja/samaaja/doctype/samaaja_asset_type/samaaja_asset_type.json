@@ -2,28 +2,29 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:category",
- "creation": "2022-07-14 12:26:27.631830",
+ "autoname": "field:type",
+ "creation": "2022-07-18 22:48:53.213234",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "category"
+  "type"
  ],
  "fields": [
   {
-   "fieldname": "category",
+   "allow_in_quick_entry": 1,
+   "fieldname": "type",
    "fieldtype": "Data",
-   "label": "Category",
+   "label": "Type",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-05 15:02:05.826722",
+ "modified": "2025-05-08 11:02:17.772019",
  "modified_by": "Administrator",
  "module": "Samaaja",
- "name": "Asset Category",
+ "name": "Samaaja Asset Type",
  "owner": "Administrator",
  "permissions": [
   {
@@ -39,7 +40,9 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
