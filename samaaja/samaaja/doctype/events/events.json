@@ -9,6 +9,7 @@
  "field_order": [
   "title",
   "type",
+  "sub_type",
   "status",
   "category",
   "subcategory",
@@ -181,11 +182,17 @@
    "fieldname": "verified_by",
    "fieldtype": "Data",
    "label": "Verified by"
+  },
+  {
+   "fieldname": "sub_type",
+   "fieldtype": "Link",
+   "label": "Sub Type",
+   "options": "Event Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-03 19:45:37.805535",
+ "modified": "2025-05-20 18:14:24.260236",
  "modified_by": "Administrator",
  "module": "Samaaja",
  "name": "Events",
