@@ -1,28 +1,76 @@
 frappe.ready(function () {
+  // Load top-level event types
+  frappe.call({
+    method: "frappe.client.get_list",
+    args: {
+      doctype: "Event Type",
+      filters: {
+        is_group: 1
+      },
+      fields: ["name"]
+    },
+    callback: function (r) {
+      if (r.message) {
+        const options = r.message.map(row => row.name);
+        frappe.web_form.fields_dict.type.df.options = options;
+        frappe.web_form.fields_dict.type.refresh();
+      }
+    }
+  });
+
+  // Load subtypes when type is selected
+  frappe.web_form.on('type', function (value) {
+    if (!value) return;
+
+    frappe.call({
+      method: "frappe.client.get_list",
+      args: {
+        doctype: "Event Type",
+        filters: {
+          parent_event_type: value.value,
+          is_group: 0
+        },
+        fields: ["name"]
+      },
+      callback: function (r) {
+        const subOptions = r.message.map(row => row.name);
+        frappe.web_form.fields_dict.sub_type.df.options = subOptions;
+        frappe.web_form.fields_dict.sub_type.refresh();
+        frappe.web_form.set_value("sub_type", "");
+      }
+    });
+  });
+
+  // Validation before form submission
   frappe.web_form.validate = () => {
     let data = frappe.web_form.get_values();
     if (data.title.length > 70) {
       frappe.msgprint("Please restrict title to max 70 characters.");
       return false;
     }
-    if (frappe.web_form.get_value("user") && !(frappe.utils.validate_type(frappe.web_form.get_value("user"), "email"))) {
+    if (
+      frappe.web_form.get_value("user") &&
+      frappe.web_form.get_value("user") !== "Administrator" &&
+      !frappe.utils.validate_type(frappe.web_form.get_value("user"), "email")
+    ) {
       frappe.msgprint('Invalid email address');
       return false;
     }
-
   };
 
+  // Title input live validation
   frappe.web_form.on("title", (field, value) => {
-    console.log(value)
     if (value.length > 70) {
-      frappe.msgprint(`Please restrict the title to max 70 characters, <br> You've entered ${value.length} characters in the title`);
+      frappe.msgprint(
+        `Please restrict the title to max 70 characters, <br> You've entered ${value.length} characters in the title`
+      );
     }
   });
 
+  // Set max length for title input
   $('*[data-fieldname="title"]').attr("maxlength", "70");
 
-
-  // hide / show fields based on user login information
+  // Show/hide fields based on user login
   if (frappe.session.user && frappe.session.user != "Guest") {
     frappe.web_form.set_value(["user"], frappe.session.user);
     frappe.web_form.set_df_property("user", "hidden", 1);
@@ -43,7 +91,7 @@ frappe.ready(function () {
     frappe.web_form.set_df_property("user", "hidden", 0);
   }
 
-  // default starting position for map
+  // Default map position
   let defaultPosition = [22.1458, 80.0882];
 
   if (navigator.geolocation) {
@@ -53,24 +101,17 @@ frappe.ready(function () {
   }
 
   function showMap(position) {
-    if (position) {
-      if (position.coords) {
-        let lat = position.coords.longitude;
-        let long = position.coords.latitude;
-        defaultPosition = [];
-        defaultPosition.push(lat);
-        defaultPosition.push(long);
-      }
+    if (position && position.coords) {
+      let lat = position.coords.longitude;
+      let long = position.coords.latitude;
+      defaultPosition = [lat, long];
     }
+
     const container = document.getElementById("map");
     if (container) {
-
       const screenWidth = window.screen.width;
+      let mapZoom = screenWidth < 700 ? 4 : 5.4;
 
-      let mapZoom = 5.4
-      if (screenWidth < 700) {
-        mapZoom = 4
-      }
       let map = L.map("map").setView(defaultPosition, mapZoom);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -78,26 +119,26 @@ frappe.ready(function () {
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
+
       let allMarkers = [];
-      map
-        .locate({
-          setView: true,
-        })
-        .on("locationerror", function (e) {
-          console.log(e);
-        });
+
+      map.locate({
+        setView: true,
+      }).on("locationerror", function (e) {
+        console.log(e);
+      });
 
       function onMapClick(e) {
-        for (let step = 0; step < allMarkers.length; step++) {
-          map.removeLayer(allMarkers[step]);
-        }
+        allMarkers.forEach(marker => map.removeLayer(marker));
         const latlng = e.latlng;
+
         frappe.web_form.set_value(["latitude"], latlng.lat);
         frappe.web_form.set_value(["longitude"], latlng.lng);
 
         let marker = L.marker([latlng.lat, latlng.lng]).addTo(map);
         allMarkers.push(marker);
       }
+
       map.on("click", onMapClick);
     }
   }
